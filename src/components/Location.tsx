@@ -25,7 +25,7 @@ function Location() {
         >
           <img
             src={LocationIcon}
-            alt="Hrvatska zastava"
+            alt="Lokacija"
             style={{ width: 24, height: 24 }}
           />
           Odaberi
@@ -45,7 +45,7 @@ function Location() {
       >
         <img
           src={LocationIcon}
-          alt="Hrvatska zastava"
+          alt="Lokacija"
           style={{ width: 24, height: 24 }}
         />
         {selected}

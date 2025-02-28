@@ -3,6 +3,7 @@ import Hero from "../assets/Hero.jpeg";
 import Location from "../components/Location";
 import Accomodation from "../components/Accomodation";
 import Date from "../components/Date";
+import Guests from "../components/Guests";
 
 function Home() {
   return (
@@ -11,7 +12,7 @@ function Home() {
         <img
           src={Hero}
           alt="Hotel"
-          style={{ height: "652px", width: "100%" }}
+          style={{ height: "622px", width: "100%" }}
         />
         <div className="hero-text-div">
           <h1 className="hero-text-title">
@@ -36,6 +37,11 @@ function Home() {
           <div className="datum">
             <p>Datum prijave / odjave</p>
             <Date/>
+          </div>
+
+          <div className="gosti">
+            <p>Broj gostiju</p>
+            <Guests/>
           </div>
         </div>
       </div>

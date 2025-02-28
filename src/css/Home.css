@@ -37,7 +37,7 @@
     gap: 12px;
     width: 1216px;
     justify-content: center;
-    top: 80%;
+    top: 85%;
     left: 50%;
     position: absolute;
     transform: translateX(-50%);
@@ -65,6 +65,16 @@
   }
 
   .datum{
+    display: flex;
+    flex-direction: column;
+    width: 249px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    gap: 12px;
+  }
+
+  .gosti{
     display: flex;
     flex-direction: column;
     width: 249px;
