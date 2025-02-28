@@ -2,6 +2,7 @@ import "../css/Home.css";
 import Hero from "../assets/Hero.jpeg";
 import Location from "../components/Location";
 import Accomodation from "../components/Accomodation";
+import Date from "../components/Date";
 
 function Home() {
   return (
@@ -30,6 +31,11 @@ function Home() {
           <div className="smjestaj">
             <p>Tip smještaja</p>
             <Accomodation/>
+          </div>
+
+          <div className="datum">
+            <p>Datum prijave / odjave</p>
+            <Date/>
           </div>
         </div>
       </div>

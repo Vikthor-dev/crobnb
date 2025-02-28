@@ -61,6 +61,15 @@
     font-weight: 700;
     font-size: 14px;
   }
+
+  .datum{
+    display: flex;
+    flex-direction: column;
+    width: 249px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+  }
   
   @media only screen and (max-width: 600px) {
     .hero{
