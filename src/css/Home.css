@@ -1,0 +1,35 @@
+.hero{
+    position: relative;
+  }
+  
+  .hero-text-title{
+    color: #00526C !important;
+    font-family: "Mulish", sans-serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 700 !important;
+    font-size: 55px !important;
+    text-transform: none !important;
+    width: 800px;
+    position: absolute;
+    top: 25%;
+    left: 2%;
+  }
+  
+  .hero-text-p{
+    color: #00526C !important;
+    font-family: "Mulish", sans-serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    text-transform: none !important;
+    width: 800px;
+    position: absolute;
+    top: 50%;
+    left: 2%;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .hero{
+      display: none;
+    }
+  }

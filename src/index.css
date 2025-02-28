@@ -1,0 +1,12 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  color:black;
+  background-color:white;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color:black;
+    background-color:white;
+  }
+}

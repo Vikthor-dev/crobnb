@@ -1,0 +1,57 @@
+.start {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .middle {
+    flex: 2;
+    display: flex;
+    justify-content: flex-start;
+    gap: 32px;
+  }
+  
+  .end {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 27px;
+    margin-right: 20px;
+  }
+
+  .endMobile{
+    display: none;
+  }
+
+.brand{
+    color:#202532;
+    font-family: "MuseoModerno", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.nav-btn{
+    color: #202532 !important;
+    font-family: "Mulish", sans-serif !important;
+    font-optical-sizing: auto !important;
+    font-weight: 400 !important;
+    font-size: 20px !important;
+    text-transform: none !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .middle{
+        display: none;
+    }
+    .end{
+        display: none;
+    }
+    .endMobile{
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+  }
