@@ -1,19 +1,17 @@
 import React from "react";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import DateIcon from "../assets/date.svg";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { DateRangeCalendar } from "@mui/x-date-pickers-pro/DateRangeCalendar";
 import Popover from "@mui/material/Popover";
+import { DateRange } from "@mui/x-date-pickers-pro/models";
+import { Dayjs } from "dayjs";
 
 function Date() {
-  const [lokacija, setLokacija] = React.useState("Odaberi");
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
-
-  const handleChange = (event: SelectChangeEvent<string>) => {
-    setLokacija(event.target.value as string);
-  };
+  const [date,setDate] = React.useState<DateRange<Dayjs>>([null,null])
 
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -26,7 +24,10 @@ function Date() {
   const open = Boolean(anchorEl);
   const id = open ? "calendar-popover" : undefined;
 
-  function renderSelectedValue(selected: string) {
+  function renderSelectedValue() {
+    const formattedStartDate = date[0]?.format("DD.MM.YYYY") || "";
+    const formattedEndDate = date[1]?.format("DD.MM.YYYY") || "";
+
     return (
       <div
         style={{
@@ -38,17 +39,19 @@ function Date() {
         }}
       >
         <img src={DateIcon} alt="Datum" style={{ width: 24, height: 24 }} />
-        {selected === "Odaberi" ? "Odaberi datum" : selected}
+        {formattedStartDate && formattedEndDate
+          ? `${formattedStartDate} - ${formattedEndDate}`
+          : "Odaberi datum"}
       </div>
     );
   }
+
 
   return (
     <div>
       <FormControl fullWidth size="small">
         <Select
-          value={lokacija}
-          onChange={handleChange}
+          value=""
           displayEmpty
           renderValue={renderSelectedValue}
           readOnly
@@ -73,7 +76,9 @@ function Date() {
         }}
       >
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-          <DateRangeCalendar calendars={1} />
+          <DateRangeCalendar calendars={1} value={date} onChange={newDate =>{
+            setDate(newDate);
+          }} />
         </LocalizationProvider>
       </Popover>
     </div>
