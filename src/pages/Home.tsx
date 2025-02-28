@@ -1,5 +1,7 @@
 import "../css/Home.css";
-import Hero from "../assets/Hero.jpeg"
+import Hero from "../assets/Hero.jpeg";
+import Location from "../components/Location";
+import Accomodation from "../components/Accomodation";
 
 function Home() {
   return (
@@ -18,6 +20,17 @@ function Home() {
             Odaberite između luksuznih vila, hotela, apartmana, mobilnih kućica
             ili turističkih naselja i osigurajte svoj savršeni odmor po mjeri
           </p>
+        </div>
+        <div className="search">
+          <div className="lokacija">
+            <p>Lokacija</p>
+            <Location/>
+          </div>
+
+          <div className="smjestaj">
+            <p>Tip smještaja</p>
+            <Accomodation/>
+          </div>
         </div>
       </div>
     </div>

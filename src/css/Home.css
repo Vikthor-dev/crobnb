@@ -27,6 +27,40 @@
     top: 50%;
     left: 2%;
   }
+
+  .search{
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    width: 1216px;
+    justify-content: center;
+    top: 80%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    height: 112px;
+  }
+
+  .lokacija{
+    display: flex;
+    flex-direction: column;
+    width: 249px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .smjestaj{
+    display: flex;
+    flex-direction: column;
+    width: 249px;
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+  }
   
   @media only screen and (max-width: 600px) {
     .hero{
