@@ -51,6 +51,7 @@
     font-family: "Mulish", sans-serif;
     font-weight: 700;
     font-size: 14px;
+    gap: 12px;
   }
 
   .smjestaj{
@@ -60,6 +61,7 @@
     font-family: "Mulish", sans-serif;
     font-weight: 700;
     font-size: 14px;
+    gap: 12px;
   }
 
   .datum{
@@ -69,6 +71,7 @@
     font-family: "Mulish", sans-serif;
     font-weight: 700;
     font-size: 14px;
+    gap: 12px;
   }
   
   @media only screen and (max-width: 600px) {
