@@ -43,7 +43,8 @@
   border-color: #D9DADD;
   padding: 8px;
 }
-.cube:hover{
+
+.cube:hover {
   cursor: pointer;
 }
 
@@ -59,25 +60,28 @@
 }
 
 @media only screen and (max-width: 600px) {
-  .main-2{
-    max-width: 328px;
-    transform: translateY(500px);
-  }
-  .main{
+  .main-2 {
     max-width: 328px;
   }
+
+  .main {
+    max-width: 328px;
+  }
+
   .tipovi-title {
     font-size: 24px;
   }
-  .cube-row{
+
+  .cube-row {
     max-width: 328px;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
     align-items: center;
-    
+
   }
-  .cube{
+
+  .cube {
     max-width: 130px;
   }
 }
