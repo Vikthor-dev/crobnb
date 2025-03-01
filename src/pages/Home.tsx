@@ -5,7 +5,7 @@ import Types from "../components/Types";
 
 function Home() {
   return (
-    <div>
+    <div className="master">
       <div className="hero">
         <img
           src={Hero}

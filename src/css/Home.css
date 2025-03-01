@@ -37,6 +37,12 @@
 
 
 @media only screen and (max-width: 600px) {
+  .master{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
   .hero {
     display: none;
   }
