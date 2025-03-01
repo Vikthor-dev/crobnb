@@ -21,7 +21,9 @@ function Home() {
           </p>
         </div>
       </div>
-      <Search/>
+      <div className="search-div">
+        <Search />
+      </div>
     </div>
   );
 }

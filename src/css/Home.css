@@ -27,9 +27,19 @@
     top: 50%;
     left: 2%;
   }
+
+  .search-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    transform: translateY(-100px);
+  }
   
   @media only screen and (max-width: 600px) {
     .hero{
       display: none;
+    }
+    .search-div{
+      transform: translateY(300px);
     }
   }

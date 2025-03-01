@@ -7,10 +7,6 @@
     gap: 12px;
     width: 1216px;
     justify-content: center;
-    top: 75%;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
     height: 112px;
   }
 
@@ -68,7 +64,6 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      top: 45%;
       width: max-content;
     }
     .spacer{
