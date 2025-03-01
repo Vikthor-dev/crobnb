@@ -1,0 +1,63 @@
+.main-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 1216px;
+}
+
+.tipovi-title {
+  font-family: "Mulish", sans-serif;
+  font-weight: 700;
+  font-size: 32px;
+  align-self: flex-start;
+}
+
+.cube-row {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  width: 1216px;
+  height: 139px;
+}
+
+.cube {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  border-radius: 5px;
+  width: 217px;
+  height: 139px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #D9DADD;
+  padding: 8px;
+}
+.cube:hover{
+  cursor: pointer;
+}
+
+.cube-text {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  justify-content: center;
+  align-items: center;
+  font-family: "Mulish", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+@media only screen and (max-width: 600px) {
+
+}

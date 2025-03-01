@@ -8,6 +8,10 @@
     width: 1216px;
     justify-content: center;
     height: 112px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #EAEAEB;
+    box-shadow: 0px 4px 20px 0px #00000014;
   }
 
   .lokacija{
@@ -65,6 +69,9 @@
       justify-content: center;
       align-items: center;
       width: max-content;
+      border-radius: 0px;
+      border-style: none;
+      box-shadow: none;
     }
     .spacer{
       height: 10px;

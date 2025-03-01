@@ -1,6 +1,7 @@
 import "../css/Home.css";
 import Hero from "../assets/Hero.jpeg";
 import Search from "../components/Search";
+import Types from "../components/Types";
 
 function Home() {
   return (
@@ -24,6 +25,7 @@ function Home() {
       <div className="search-div">
         <Search />
       </div>
+      <Types />
     </div>
   );
 }
