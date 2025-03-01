@@ -27,87 +27,9 @@
     top: 50%;
     left: 2%;
   }
-
-  .search{
-    background-color: white;
-    border-radius: 10px;
-    padding: 24px;
-    display: flex;
-    flex-direction: row;
-    gap: 12px;
-    width: 1216px;
-    justify-content: center;
-    top: 75%;
-    left: 50%;
-    position: absolute;
-    transform: translateX(-50%);
-    height: 112px;
-  }
-
-  .lokacija{
-    display: flex;
-    flex-direction: column;
-    width: 249px;
-    font-family: "Mulish", sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    gap: 12px;
-  }
-
-  .smjestaj{
-    display: flex;
-    flex-direction: column;
-    width: 249px;
-    font-family: "Mulish", sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    gap: 12px;
-  }
-
-  .datum{
-    display: flex;
-    flex-direction: column;
-    width: 249px;
-    font-family: "Mulish", sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    gap: 12px;
-  }
-
-  .gosti{
-    display: flex;
-    flex-direction: column;
-    width: 249px;
-    font-family: "Mulish", sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    gap: 12px;
-  }
-
-  .trazi{
-    display: flex;
-    flex-direction: column;
-  }
-
-  .spacer{
-    height: 55px;
-  }
   
   @media only screen and (max-width: 600px) {
     .hero{
       display: none;
-    }
-    .search{
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      top: 45%;
-      width: max-content;
-    }
-    .spacer{
-      height: 10px;
-    }
-    .search-btn{
-      width: 249px !important;
     }
   }
