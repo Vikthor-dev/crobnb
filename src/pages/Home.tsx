@@ -4,6 +4,7 @@ import Search from "../components/Search";
 import Types from "../components/Types";
 import Regije from "../components/Regije";
 import RegijeMobile from "../components/RegijeMobile";
+import ArrowIcon from "../assets/arrow.svg";
 
 function Home() {
   return (
@@ -31,8 +32,31 @@ function Home() {
         </div>
       </div>
       <Types />
-      <Regije/>
-      <RegijeMobile/>
+      <Regije />
+      <RegijeMobile />
+
+      <div className="novosti">
+        <div className="novosti-row">
+          <p className="title-novosti">Novosti</p>
+          <div
+            className="novosti-more-div"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              gap: "8px",
+              alignItems: "center",
+            }}
+          >
+            <p className="novosti-more">Vidi sve novosti</p>
+            <img
+              src={ArrowIcon}
+              alt="Arrow Icon"
+              style={{ width: 24, height: 24 }}
+            />
+          </div>
+        </div>
+      </div>
+
     </div>
   );
 }
