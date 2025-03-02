@@ -16,14 +16,14 @@ function Types() {
             <div className="cube">
               <img
                 src={HoteliIcon}
-                alt="Crobnb Icon"
+                alt="Hoteli"
                 style={{ width: 56, height: 56 }}
               />
               <div className="cube-text">
                 <p>Hoteli</p>
                 <img
                   src={ArrowIcon}
-                  alt="Crobnb Icon"
+                  alt="Arrow Icon"
                   style={{ width: 24, height: 24 }}
                 />
               </div>
@@ -32,14 +32,14 @@ function Types() {
             <div className="cube">
               <img
                 src={ApartmanIcon}
-                alt="Crobnb Icon"
+                alt="Apartmani Icon"
                 style={{ width: 56, height: 56 }}
               />
               <div className="cube-text">
                 <p>Apartmani</p>
                 <img
                   src={ArrowIcon}
-                  alt="Crobnb Icon"
+                  alt="Arrow Icon"
                   style={{ width: 24, height: 24 }}
                 />
               </div>
@@ -48,14 +48,14 @@ function Types() {
             <div className="cube">
               <img
                 src={VilleIcon}
-                alt="Crobnb Icon"
+                alt="Ville Icon"
                 style={{ width: 56, height: 56 }}
               />
               <div className="cube-text">
                 <p>Ville</p>
                 <img
                   src={ArrowIcon}
-                  alt="Crobnb Icon"
+                  alt="Arrow Icon"
                   style={{ width: 24, height: 24 }}
                 />
               </div>
@@ -64,14 +64,14 @@ function Types() {
             <div className="cube">
               <img
                 src={TuristIcon}
-                alt="Crobnb Icon"
+                alt="Turistička naselja Icon"
                 style={{ width: 56, height: 56 }}
               />
               <div className="cube-text">
                 <p>Turistička naselja</p>
                 <img
                   src={ArrowIcon}
-                  alt="Crobnb Icon"
+                  alt="Arrow Icon"
                   style={{ width: 24, height: 24 }}
                 />
               </div>
@@ -80,7 +80,7 @@ function Types() {
             <div className="cube">
               <img
                 src={MobileIcon}
-                alt="Crobnb Icon"
+                alt="Mobilne kućice Icon"
                 style={{ width: 56, height: 56 }}
               />
               <div className="cube-text">

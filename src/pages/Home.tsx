@@ -2,6 +2,8 @@ import "../css/Home.css";
 import Hero from "../assets/Hero.jpeg";
 import Search from "../components/Search";
 import Types from "../components/Types";
+import Regije from "../components/Regije";
+import RegijeMobile from "../components/RegijeMobile";
 
 function Home() {
   return (
@@ -28,8 +30,9 @@ function Home() {
           <Search />
         </div>
       </div>
-
       <Types />
+      <Regije/>
+      <RegijeMobile/>
     </div>
   );
 }

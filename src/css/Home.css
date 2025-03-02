@@ -1,6 +1,15 @@
+.master {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .hero {
   position: relative;
   margin-bottom: 100px;
+}
+.image{
+  width: 1440px;
 }
 
 .hero-text-title {
@@ -63,5 +72,12 @@
     width: 100%;
     justify-content: center;
     margin-top: 300px;
+  }
+  .regije{
+    max-width: 310px;
+    margin-top: 400px;
+  }
+  .regije-title{
+    font-size: 24px;
   }
 }

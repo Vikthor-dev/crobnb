@@ -1,0 +1,41 @@
+.regije{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    max-width: 1214px;
+  }
+  .regije-title{
+    align-self: flex-start;
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: 32px ;
+  
+  }
+  .regije-rows{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 32px;
+    flex-wrap: wrap;
+  }
+  .regija-img{
+    height: 189px;
+    width: 279.5px;
+  }
+  .regija-img:hover{
+    cursor: pointer;
+  }
+  
+  
+  @media only screen and (max-width: 600px) {
+    .regije{
+      max-width: 310px;
+      margin-top: 400px;
+      display: none;
+    }
+    .regije-title{
+      font-size: 24px;
+    }
+  }
