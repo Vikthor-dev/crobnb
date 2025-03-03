@@ -1,0 +1,16 @@
+.carousel-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 29px;
+}
+.left-arrow{
+    transform: rotate(180deg);
+}
+.left-arrow:hover{
+    cursor: pointer;
+}
+.right-arrow:hover{
+    cursor: pointer;
+}

@@ -5,6 +5,7 @@ import Types from "../components/Types";
 import Regije from "../components/Regije";
 import RegijeMobile from "../components/RegijeMobile";
 import ArrowIcon from "../assets/arrow.svg";
+import NewsCarousel from "../components/NewsCarousel";
 
 function Home() {
   return (
@@ -38,9 +39,7 @@ function Home() {
       <div className="novosti">
         <div className="novosti-row">
           <p className="title-novosti">Novosti</p>
-          <div
-            className="novosti-more-div"
-          >
+          <div className="novosti-more-div">
             <p className="novosti-more">Vidi sve novosti</p>
             <img
               src={ArrowIcon}
@@ -49,6 +48,12 @@ function Home() {
             />
           </div>
         </div>
+
+      <div className="cards">
+      <NewsCarousel />
+      </div>
+        
+      
       </div>
     </div>
   );

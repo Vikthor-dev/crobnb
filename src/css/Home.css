@@ -90,6 +90,7 @@
   color: #337589;
 }
 
+
 @media only screen and (max-width: 600px) {
   .master {
     display: flex;
