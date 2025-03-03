@@ -1,16 +1,9 @@
-.carousel-container{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    gap: 29px;
+.carousel-container {
+    width: 1220px;
 }
-.left-arrow{
-    transform: rotate(180deg);
-}
-.left-arrow:hover{
-    cursor: pointer;
-}
-.right-arrow:hover{
-    cursor: pointer;
+
+@media only screen and (max-width: 600px) {
+    .carousel-container{
+        width: 328px;
+    }
 }
