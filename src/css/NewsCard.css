@@ -63,3 +63,37 @@
     align-items: center;
     width: 96px;
   }
+  @media only screen and (max-width: 600px) {
+    .news-card{
+      width: 258px;
+      height: 504px;
+    }
+    .news-img{
+      height:215px;
+      width:258px;
+    }
+    .card-content{
+      width: 258px;
+      height: 289px;
+    }
+    .line1{
+      width: 234px;
+      height: 16px;
+    }
+    .news-card-title{
+      width: 234px;
+      height: 58px;
+    }
+    .news-card-text{
+      width: 234px;
+      height: 99px;
+    }
+    .vidi-vise{
+      margin-top: 20px;
+      width: 234px;
+      height: 48px;
+    }
+    .vidi-vise-text{
+      width: 96px;
+    }
+  }

@@ -40,12 +40,6 @@ function Home() {
           <p className="title-novosti">Novosti</p>
           <div
             className="novosti-more-div"
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "8px",
-              alignItems: "center",
-            }}
           >
             <p className="novosti-more">Vidi sve novosti</p>
             <img
@@ -56,7 +50,6 @@ function Home() {
           </div>
         </div>
       </div>
-
     </div>
   );
 }
