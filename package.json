@@ -17,6 +17,7 @@
     "@mui/x-date-pickers": "^7.27.1",
     "@mui/x-date-pickers-pro": "^7.27.1",
     "@tailwindcss/vite": "^4.0.9",
+    "axios": "^1.8.1",
     "country-flag-icons": "^1.5.18",
     "dayjs": "^1.11.13",
     "react": "^19.0.0",
