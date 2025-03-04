@@ -6,6 +6,7 @@ import Regije from "../components/Regije";
 import RegijeMobile from "../components/RegijeMobile";
 import ArrowIcon from "../assets/arrow.svg";
 import NewsCarousel from "../components/NewsCarousel";
+import About from "../components/About";
 
 function Home() {
   return (
@@ -49,11 +50,10 @@ function Home() {
           </div>
         </div>
 
-      <div className="cards">
-      <NewsCarousel />
-      </div>
-        
-      
+        <div className="cards">
+          <NewsCarousel />
+        </div>
+        <About/>
       </div>
     </div>
   );
