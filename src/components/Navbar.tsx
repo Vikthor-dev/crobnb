@@ -6,16 +6,37 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import HeartIocn from "@mui/icons-material/FavoriteBorder";
 import crobnbIcon from "../assets/crobnb_icon.svg";
-import Language from '../components/Languge'
-import MenuIcon from '@mui/icons-material/Menu';
+import Language from "../components/Languge";
+import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
+import { useNavigate } from "react-router-dom";
 
-function Navbar({ isDrawerOpen, toggleNavbarDrawer }: { isDrawerOpen: boolean; toggleNavbarDrawer: () => void }) {
+function Navbar({
+  isDrawerOpen,
+  toggleNavbarDrawer,
+}: {
+  isDrawerOpen: boolean;
+  toggleNavbarDrawer: () => void;
+}) {
+  const navigate = useNavigate();
+
+  function goToTipovi() {
+    navigate("/tipovi");
+  }
+
+  function goToHome() {
+    navigate("/");
+  }
+
   return (
-    <AppBar sx={{ backgroundColor: "white" , zIndex: 1201 }} position="fixed" elevation={0}>
+    <AppBar
+      sx={{ backgroundColor: "white", zIndex: 1201 }}
+      position="fixed"
+      elevation={0}
+    >
       <Container sx={{ backgroundColor: "white" }} maxWidth="xl">
         <Toolbar>
-          <div className="start">
+          <div onClick={goToHome} className="start">
             <img
               src={crobnbIcon}
               alt="Crobnb Icon"
@@ -25,7 +46,7 @@ function Navbar({ isDrawerOpen, toggleNavbarDrawer }: { isDrawerOpen: boolean; t
           </div>
 
           <div className="middle">
-            <Button className="nav-btn" variant="text">
+            <Button onClick={goToTipovi} className="nav-btn" variant="text">
               Tipovi smještaja
             </Button>
             <Button className="nav-btn" variant="text">
@@ -38,7 +59,7 @@ function Navbar({ isDrawerOpen, toggleNavbarDrawer }: { isDrawerOpen: boolean; t
 
           <div className="end">
             <HeartIocn sx={{ fontSize: 24, color: "#00526C" }} />
-            <Language/>
+            <Language />
             <Button className="nav-btn" variant="text">
               Prijava
             </Button>
@@ -47,17 +68,26 @@ function Navbar({ isDrawerOpen, toggleNavbarDrawer }: { isDrawerOpen: boolean; t
           <div className="endMobile">
             {isDrawerOpen ? (
               <CloseIcon
-                sx={{ height: 32, width: 32, cursor: "pointer",color:"#BEC0C5"}}
+                sx={{
+                  height: 32,
+                  width: 32,
+                  cursor: "pointer",
+                  color: "#BEC0C5",
+                }}
                 onClick={toggleNavbarDrawer}
               />
             ) : (
               <MenuIcon
-                sx={{ height: 32, width: 32, color: "black", cursor: "pointer" }}
+                sx={{
+                  height: 32,
+                  width: 32,
+                  color: "black",
+                  cursor: "pointer",
+                }}
                 onClick={toggleNavbarDrawer}
               />
             )}
           </div>
-
         </Toolbar>
       </Container>
     </AppBar>

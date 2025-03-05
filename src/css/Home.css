@@ -11,7 +11,7 @@
 }
 
 .image {
-  width: 1440px;
+  width: 1400px;
 }
 
 .hero-text-title {
@@ -51,7 +51,7 @@
 }
 
 .novosti {
-  width: 1440px;
+  width: 1390px;
   height: 735px;
   background-color: #F2F6F8;
   display: flex;
@@ -65,7 +65,7 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 85%;
+  width: 88%;
 }
 
 .title-novosti {
@@ -101,6 +101,7 @@
     justify-content: center;
     align-items: center;
     font-family: "Mulish", sans-serif;
+    width: fit-content;
   }
 
   .hero {

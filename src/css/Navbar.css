@@ -4,6 +4,9 @@
     align-items: center;
     gap: 4px;
   }
+  .start:hover{
+    cursor: pointer;
+  }
   
   .middle {
     flex: 2;
