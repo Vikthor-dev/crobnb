@@ -7,6 +7,7 @@ import RegijeMobile from "../components/RegijeMobile";
 import ArrowIcon from "../assets/arrow.svg";
 import NewsCarousel from "../components/NewsCarousel";
 import About from "../components/About";
+import Footer from "../components/Footer";
 
 function Home() {
   return (
@@ -53,8 +54,9 @@ function Home() {
         <div className="cards">
           <NewsCarousel />
         </div>
-        <About/>
       </div>
+      <About />
+      <Footer />
     </div>
   );
 }

@@ -92,6 +92,8 @@
   color: #337589;
 }
 
+
+
 @media only screen and (max-width: 600px) {
   .master {
     display: flex;
@@ -122,7 +124,9 @@
     max-width: 100vw;
     height: 624px;
   }
-  .title-novosti{
+
+  .title-novosti {
     font-size: 24px;
   }
+
 }
