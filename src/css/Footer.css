@@ -71,6 +71,15 @@
     align-items: center;
     background-color: white;
   }
+  .face:hover{
+    cursor: pointer;
+  }
+  .twitt:hover{
+    cursor: pointer;
+  }
+  .insta:hover{
+    cursor: pointer;
+  }
 
   @media only screen and (max-width: 600px) {
   

@@ -50,9 +50,9 @@ function Footer() {
         <div className="column">
           <p className="c-title">Prati nas</p>
           <div className="ikone">
-            <img src={Face} style={{ height: 24, width: 24 }} />
-            <img src={Twitt} style={{ height: 24, width: 24 }} />
-            <img src={Insta} style={{ height: 24, width: 24 }} />
+            <img className="face" src={Face} style={{ height: 24, width: 24 }} />
+            <img className="twitt" src={Twitt} style={{ height: 24, width: 24 }} />
+            <img className="insta" src={Insta} style={{ height: 24, width: 24 }} />
           </div>
         </div>
 

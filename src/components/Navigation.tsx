@@ -2,7 +2,7 @@ import Button from "@mui/material/Button/Button";
 import Drawer from "@mui/material/Drawer";
 import "../css/Navigation.css";
 import Language from "../components/Languge";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Navigation({
   isDrawerOpen,
@@ -12,10 +12,15 @@ function Navigation({
   toggleNavigationDrawer: () => void;
 }) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   function goToTipovi() {
     navigate("/tipovi");
     toggleNavigationDrawer();
+  }
+
+  function isActive(path: string) {
+    return location.pathname === path;
   }
 
   return (
@@ -48,6 +53,10 @@ function Navigation({
             onClick={goToTipovi}
             className="navigation-btn"
             variant="text"
+            sx={{
+              color: isActive("/tipovi") ? "#337589 !important" : "inherit",
+              fontWeight: isActive("/tipovi") ? "700 !important" : "inherit",
+            }}
           >
             Tipovi smještaja
           </Button>

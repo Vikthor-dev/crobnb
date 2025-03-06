@@ -9,7 +9,7 @@ import crobnbIcon from "../assets/crobnb_icon.svg";
 import Language from "../components/Languge";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function Navbar({
   isDrawerOpen,
@@ -19,6 +19,7 @@ function Navbar({
   toggleNavbarDrawer: () => void;
 }) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   function goToTipovi() {
     navigate("/tipovi");
@@ -26,6 +27,10 @@ function Navbar({
 
   function goToHome() {
     navigate("/");
+  }
+
+  function isActive(path: string) {
+    return location.pathname === path;
   }
 
   return (
@@ -46,7 +51,15 @@ function Navbar({
           </div>
 
           <div className="middle">
-            <Button onClick={goToTipovi} className="nav-btn" variant="text">
+            <Button
+              sx={{
+                color: isActive("/tipovi") ? "#337589 !important" : "inherit",
+                fontWeight: isActive("/tipovi") ? "700 !important" : "inherit",
+              }}
+              onClick={goToTipovi}
+              className="nav-btn"
+              variant="text"
+            >
               Tipovi smještaja
             </Button>
             <Button className="nav-btn" variant="text">
