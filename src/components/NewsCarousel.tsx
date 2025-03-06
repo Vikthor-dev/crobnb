@@ -20,7 +20,9 @@ function NewsCarousel() {
   async function fetchData() {
     try {
       const response = await axios.get("http://localhost:8055/items/novosti");
-      setNovosti(response.data.data);
+      let novosti = response.data.data
+      let novosti_sliced = [...novosti].slice(0,3)
+      setNovosti(novosti_sliced);
       console.log("Novosti:",response.data.data)
     } catch (error) {
       console.error("Error fetching data:", error);
