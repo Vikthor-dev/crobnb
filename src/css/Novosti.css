@@ -1,0 +1,31 @@
+.n-main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 80px;
+}
+.n-title{
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+}
+.n-cards-div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 32px;
+}
+
+@media only screen and (max-width:600){
+    .n-main{
+        width: 100vw;
+        overflow-x: hidden;
+    }
+    .n-cards-div{
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100vw;
+    }
+}
