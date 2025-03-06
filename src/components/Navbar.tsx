@@ -25,6 +25,10 @@ function Navbar({
     navigate("/tipovi");
   }
 
+  function goToRegije() {
+    navigate("/regije");
+  }
+
   function goToHome() {
     navigate("/");
   }
@@ -62,7 +66,15 @@ function Navbar({
             >
               Tipovi smještaja
             </Button>
-            <Button className="nav-btn" variant="text">
+            <Button
+            onClick={goToRegije}
+              sx={{
+                color: isActive("/regije") ? "#337589 !important" : "inherit",
+                fontWeight: isActive("/regije") ? "700 !important" : "inherit",
+              }}
+              className="nav-btn"
+              variant="text"
+            >
               Regije
             </Button>
             <Button className="nav-btn" variant="text">

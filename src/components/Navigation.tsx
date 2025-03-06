@@ -23,6 +23,10 @@ function Navigation({
     return location.pathname === path;
   }
 
+  function goToRegije() {
+    navigate("/regije");
+  }
+
   return (
     <div>
       <Drawer
@@ -60,7 +64,15 @@ function Navigation({
           >
             Tipovi smještaja
           </Button>
-          <Button className="navigation-btn" variant="text">
+          <Button
+            onClick={goToRegije}
+            sx={{
+              color: isActive("/regije") ? "#337589 !important" : "inherit",
+              fontWeight: isActive("/regije") ? "700 !important" : "inherit",
+            }}
+            className="navigation-btn"
+            variant="text"
+          >
             Regije
           </Button>
           <Button className="navigation-btn" variant="text">

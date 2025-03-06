@@ -5,6 +5,7 @@ import Navigation from "./components/Navigation";
 import { Route , Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Tipovi from "./pages/Tipovi";
+import RegijeFull from "./pages/RegijeFull";
 
 function App() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home/>}></Route>
           <Route path="/tipovi" element={<Tipovi/>}></Route>
+          <Route path="/regije" element={<RegijeFull/>}></Route>
         </Routes>
         <Navbar isDrawerOpen={drawerOpen} toggleNavbarDrawer={toggleDrawer} />
         <Navigation
