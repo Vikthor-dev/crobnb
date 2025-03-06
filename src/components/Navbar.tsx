@@ -33,6 +33,10 @@ function Navbar({
     navigate("/");
   }
 
+  function goToNovosti() {
+    navigate("/novosti");
+  }
+
   function isActive(path: string) {
     return location.pathname === path;
   }
@@ -67,7 +71,7 @@ function Navbar({
               Tipovi smještaja
             </Button>
             <Button
-            onClick={goToRegije}
+              onClick={goToRegije}
               sx={{
                 color: isActive("/regije") ? "#337589 !important" : "inherit",
                 fontWeight: isActive("/regije") ? "700 !important" : "inherit",
@@ -77,7 +81,15 @@ function Navbar({
             >
               Regije
             </Button>
-            <Button className="nav-btn" variant="text">
+            <Button
+              sx={{
+                color: isActive("/novosti") ? "#337589 !important" : "inherit",
+                fontWeight: isActive("/novosti") ? "700 !important" : "inherit",
+              }}
+              onClick={goToNovosti}
+              className="nav-btn"
+              variant="text"
+            >
               Novosti
             </Button>
           </div>

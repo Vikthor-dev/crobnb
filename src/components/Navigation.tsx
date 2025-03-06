@@ -27,6 +27,10 @@ function Navigation({
     navigate("/regije");
   }
 
+  function goToNovosti() {
+    navigate("/novosti");
+  }
+
   return (
     <div>
       <Drawer
@@ -75,7 +79,15 @@ function Navigation({
           >
             Regije
           </Button>
-          <Button className="navigation-btn" variant="text">
+          <Button
+            sx={{
+              color: isActive("/regije") ? "#337589 !important" : "inherit",
+              fontWeight: isActive("/novosti") ? "700 !important" : "inherit",
+            }}
+            onClick={goToNovosti}
+            className="navigation-btn"
+            variant="text"
+          >
             Novosti
           </Button>
           <Button className="navigation-btn" variant="text">
