@@ -102,6 +102,7 @@
     align-items: center;
     font-family: "Mulish", sans-serif;
     width: fit-content;
+    overflow-x: hidden;
   }
 
   .hero {

@@ -17,16 +17,18 @@ function NewsCarousel() {
 
   const [novosti, setNovosti] = useState<NewsItem[]>([]);
 
+  async function fetchData() {
+    try {
+      const response = await axios.get("http://localhost:8055/items/novosti");
+      setNovosti(response.data.data);
+      console.log("Novosti:",response.data.data)
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+
   useEffect(() => {
-    axios
-      .get("http://localhost:8055/items/novosti")
-      .then((response) => {
-        setNovosti(response.data.data);
-        console.log("Novosti array:", response.data.data);
-      })
-      .catch((error) => {
-        console.log("Error occurred:", error);
-      });
+    fetchData()
   }, []);
 
   const responsive = {

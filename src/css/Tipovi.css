@@ -15,7 +15,11 @@
     margin-bottom: 30px;
 }
 
-.hoteli {
+.tipovi-all{
+    margin-bottom: 80px;
+}
+
+.tipovi {
     width: 1216px;
     display: flex;
     flex-direction: row;
@@ -24,7 +28,7 @@
     align-items: start;
 }
 
-.hoteli-div {
+.tipovi-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,20 +39,20 @@
     height: 384px;
 }
 
-.hoteli-title {
+.tipovi-title {
     font-family: "Mulish", sans-serif;
     font-weight: 700;
     font-size: 32px;
 }
 
-.hoteli-text {
+.tipovi-text {
     font-family: "Mulish", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: #50545E;
 }
 
-.hoteli-link {
+.tipovi-link {
     display: flex;
     flex-direction: row;
     gap: 5px;
@@ -58,7 +62,7 @@
     font-weight: 700;
 }
 
-.hoteli-link:hover {
+.tipovi-link:hover {
     cursor: pointer;
 }
 
@@ -66,33 +70,74 @@
     transform: translateY(2px);
 }
 
-.hoteli-div-cards {
+.tipovi-div-cards {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 16px;
     height: 384px;
-    width: 712px;
+    width: 250px;
+}
+
+.place-carousel {
+    display: none;
+}
+.apartmani-mobile{
+    display: none;
+}
+.turist-place-mobile{
+    display: none;
 }
 
 @media only screen and (max-width: 600px) {
-    .tipovi-smjestaja{
-        width: 360px;
+    .tipovi-smjestaja {
+        width: 100vw;
+        overflow-x: hidden;
     }
+
     .tipovi-smjestaja-naslov {
         width: 360px;
         font-size: 32px;
         align-self: flex-start;
         padding-left: 25px;
     }
-    .hoteli{
+
+    .tipovi {
         flex-direction: column;
-        width: 360px;
+        width: 100vw;
     }
-    .hoteli-div {
-        width: 360px;
+
+    .tipovi-div {
+        width: 100vw;
         height: 335px;
         padding: 24px 16px 24px 16px;
+    }
+
+    .tipovi-div-cards {
+        display: none;
+    }
+
+    .tipovi-text {
+        width: 90%;
+    }
+
+    .place-carousel {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .apartmani-desktop{
+        display: none;
+    }
+    .apartmani-mobile{
+        display: flex;
+    }
+    .turist-place-desktop{
+        display: none;
+    }
+    .turist-place-mobile{
+        display: flex;
     }
 }

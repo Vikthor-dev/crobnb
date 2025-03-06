@@ -1,16 +1,21 @@
 import "../css/PlaceCard.css";
 import Rating from "@mui/material/Rating";
 
-function PlaceCard() {
-  let rating: number = 5;
+interface Hoteli {
+  image: string;
+  city: string;
+  rating: number;
+  name: string;
+  price: number;
+}
+
+function PlaceCard({ image, city, rating, name, price }: Hoteli) {
+
+  const decimalNumber = price ? price.toFixed(2) : price;
 
   return (
     <div className="hoteli-card">
-      <img
-        className="hoteli-card-img"
-        src="https://shorturl.at/6sWfK"
-        alt="Hoteli"
-      />
+      <img className="hoteli-card-img" src={image} alt="Hoteli" />
       <div className="hoteli-card-content">
         <div className="upper">
           <p
@@ -22,7 +27,7 @@ function PlaceCard() {
               marginBottom: 7,
             }}
           >
-            SPLIT
+            {city}
           </p>
           <Rating value={rating} readOnly size="small" />
           <p
@@ -34,7 +39,7 @@ function PlaceCard() {
               marginTop: 7,
             }}
           >
-            Park Split
+            {name}
           </p>
         </div>
         <div className="lower">
@@ -58,7 +63,7 @@ function PlaceCard() {
               marginBottom: 5,
             }}
           >
-            105.00 EUR
+            {decimalNumber} EUR
           </p>
           <p
             style={{
