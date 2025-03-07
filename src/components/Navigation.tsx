@@ -25,10 +25,12 @@ function Navigation({
 
   function goToRegije() {
     navigate("/regije");
+    toggleNavigationDrawer();
   }
 
   function goToNovosti() {
     navigate("/novosti");
+    toggleNavigationDrawer();
   }
 
   return (
@@ -81,7 +83,7 @@ function Navigation({
           </Button>
           <Button
             sx={{
-              color: isActive("/regije") ? "#337589 !important" : "inherit",
+              color: isActive("/novosti") ? "#337589 !important" : "inherit",
               fontWeight: isActive("/novosti") ? "700 !important" : "inherit",
             }}
             onClick={goToNovosti}

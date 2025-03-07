@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import "../css/Novosti.css";
 import axios from "axios";
+import NewsCard from "../components/NewsCard";
+import Footer from "../components/Footer";
 
 function Novosti() {
   interface NewsItem {
@@ -17,8 +19,7 @@ function Novosti() {
     try {
       const response = await axios.get("http://localhost:8055/items/novosti");
       let novosti = response.data.data;
-      let novosti_sliced = [...novosti].slice(0, 3);
-      setNovosti(novosti_sliced);
+      setNovosti(novosti);
       console.log("Novosti:", response.data.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -32,9 +33,22 @@ function Novosti() {
   return (
     <div className="n-main">
       <p className="n-title">Novosti</p>
-      <div className="n-cards-div">
-        
-      </div>
+
+      {novosti.length > 0 && (
+        <div className="n-cards-div">
+          {novosti.map((novost, index) => (
+            <NewsCard
+              key={index}
+              image={novost.image}
+              category={novost.category}
+              published={novost.published}
+              title={novost.title}
+              text={novost.text}
+            />
+          ))}
+        </div>
+      )}
+      <Footer />
     </div>
   );
 }

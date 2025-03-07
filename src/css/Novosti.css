@@ -9,23 +9,34 @@
     font-family: "Mulish", sans-serif;
     font-weight: 700;
     font-size: 40px;
+    width: 1216px;
 }
 .n-cards-div{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 32px;
+    gap: 21px;
+    width: 1216px;
 }
 
-@media only screen and (max-width:600){
-    .n-main{
+@media only screen and (max-width: 600px) {
+    .n-main {
         width: 100vw;
         overflow-x: hidden;
     }
-    .n-cards-div{
+    .n-title{
+        font-family: "Mulish", sans-serif;
+        font-weight: 700;
+        font-size: 32px;
+        width: 70%;
+    }
+    .n-cards-div {
         display: flex;
         flex-direction: column;
+        flex-wrap: nowrap;
         gap: 16px;
         width: 100vw;
+        align-items: center;
+        gap: 32px;
     }
 }
