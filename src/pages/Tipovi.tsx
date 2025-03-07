@@ -30,7 +30,7 @@ function Tipovi() {
 
   const [turistplace, setTuristPlace] = useState<Smjestaji[]>([]);
 
-  const [mobile , setMobile] = useState<Smjestaji[]>([])
+  const [mobile, setMobile] = useState<Smjestaji[]>([]);
 
   async function fetchDataTipovi() {
     try {
@@ -48,6 +48,7 @@ function Tipovi() {
         "http://localhost:8055/items/smjestaji",
         {
           params: {
+            limit: 3,
             filter: {
               category: {
                 _eq: "hoteli",
@@ -58,9 +59,8 @@ function Tipovi() {
       );
       console.log("Hoteli:", response.data.data);
       let hoteli = response.data.data;
-      let final_hotels = hoteli.slice(0, 3);
 
-      setHoteli(final_hotels);
+      setHoteli(hoteli);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -72,6 +72,7 @@ function Tipovi() {
         "http://localhost:8055/items/smjestaji",
         {
           params: {
+            limit: 3,
             filter: {
               category: {
                 _eq: "apartmani",
@@ -82,9 +83,8 @@ function Tipovi() {
       );
       console.log("Apartmani:", response.data.data);
       let apartmani = response.data.data;
-      let final_apartmani = apartmani.slice(0, 3);
 
-      setApartmani(final_apartmani)
+      setApartmani(apartmani);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -96,6 +96,7 @@ function Tipovi() {
         "http://localhost:8055/items/smjestaji",
         {
           params: {
+            limit: 3,
             filter: {
               category: {
                 _eq: "ville",
@@ -106,9 +107,8 @@ function Tipovi() {
       );
       console.log("Ville:", response.data.data);
       let ville = response.data.data;
-      let final_ville = ville.slice(0, 3);
 
-      setVille(final_ville)
+      setVille(ville);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -120,6 +120,7 @@ function Tipovi() {
         "http://localhost:8055/items/smjestaji",
         {
           params: {
+            limit: 3,
             filter: {
               category: {
                 _eq: "turisticka_naselja",
@@ -130,9 +131,8 @@ function Tipovi() {
       );
       console.log("Turisticka naselja:", response.data.data);
       let turistplace = response.data.data;
-      let final_place = turistplace.slice(0, 3);
 
-      setTuristPlace(final_place)
+      setTuristPlace(turistplace);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -144,6 +144,7 @@ function Tipovi() {
         "http://localhost:8055/items/smjestaji",
         {
           params: {
+            limit: 3,
             filter: {
               category: {
                 _eq: "mobilne_kucice",
@@ -154,9 +155,8 @@ function Tipovi() {
       );
       console.log("Mobilne kucice:", response.data.data);
       let mobile = response.data.data;
-      let final_mobile = mobile.slice(0, 3);
 
-      setMobile(final_mobile)
+      setMobile(mobile);
     } catch (error) {
       console.error("Error fetching data:", error);
     }
@@ -287,16 +287,16 @@ function Tipovi() {
                 </div>
               </div>
               {ville.map((villa, index) => (
-                  <div className="tipovi-div-cards" key={index}>
-                    <PlaceCard
-                      image={villa.image}
-                      city={villa.city}
-                      name={villa.name}
-                      rating={villa.rating}
-                      price={villa.price}
-                    />
-                  </div>
-                ))}
+                <div className="tipovi-div-cards" key={index}>
+                  <PlaceCard
+                    image={villa.image}
+                    city={villa.city}
+                    name={villa.name}
+                    rating={villa.rating}
+                    price={villa.price}
+                  />
+                </div>
+              ))}
 
               <div className="place-carousel">
                 <PlaceCarousel smjestaji={ville} />
