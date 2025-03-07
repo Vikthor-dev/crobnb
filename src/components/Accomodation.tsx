@@ -11,6 +11,20 @@ function Accomodation() {
     setSmjestaj(event.target.value as string);
   };
 
+  const tipovi_object = [
+    {value:"hoteli",label:"Hoteli"},
+    {value:"apartmani",label:"Apartmani"},
+    {value:"ville",label:"Hoteli"},
+    {value:"turisticka_naselja",label:"Turistička naselja"},
+    {value:"mobilne_kucice",label:"Mobilne kućice"},
+  ]
+
+  function getLabel(value:string){
+    const selectedOption = tipovi_object.find((option)=>option.value === value)
+    return selectedOption ? selectedOption.label : "Odaberi"
+  }
+
+
   function renderSelectedValue(selected: string) {
     if (selected === "Odaberi tip") {
       return (
@@ -40,7 +54,7 @@ function Accomodation() {
         }}
       >
         <img src={BedIcon} alt="Smještaj" style={{ width: 24, height: 24 }} />
-        {selected}
+        {getLabel(selected)}
       </div>
     );
   }
@@ -54,11 +68,11 @@ function Accomodation() {
           displayEmpty
           renderValue={renderSelectedValue}
         >
-          <MenuItem value="Hoteli">Hoteli</MenuItem>
-          <MenuItem value="Apartmani">Apartmani</MenuItem>
-          <MenuItem value="Turistička naselja">Turistička naselja</MenuItem>
-          <MenuItem value="Ville">Ville</MenuItem>
-          <MenuItem value="Mobilne kućice">Mobilne kućice</MenuItem>
+          <MenuItem value="hoteli">Hoteli</MenuItem>
+          <MenuItem value="apartmani">Apartmani</MenuItem>
+          <MenuItem value="turusticka_naselja">Turistička naselja</MenuItem>
+          <MenuItem value="ville">Ville</MenuItem>
+          <MenuItem value="mobilne_kucice">Mobilne kućice</MenuItem>
         </Select>
       </FormControl>
     </div>
