@@ -4,6 +4,7 @@ import axios from "axios";
 import NewsCard from "../components/NewsCard";
 import Footer from "../components/Footer";
 import ArrowIcon from "../assets/arrow2.svg";
+import Button from "@mui/material/Button/Button";
 
 function Novosti() {
   interface NewsItem {
@@ -16,12 +17,12 @@ function Novosti() {
 
   const [novosti, setNovosti] = useState<NewsItem[]>([]);
 
-  const [currentPage , setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const [postsPerPage , ] = useState(6);
+  const [postsPerPage] = useState(6);
 
-  function calculateOffset(currentPage:number,postsPerPage:number){
-    return (currentPage - 1) * postsPerPage
+  function calculateOffset(currentPage: number, postsPerPage: number) {
+    return (currentPage - 1) * postsPerPage;
   }
 
   const scrollTop = () => {
@@ -32,22 +33,20 @@ function Novosti() {
     setCurrentPage((prev) => prev + 1);
     scrollTop();
   }
-  
+
   function Previous() {
     setCurrentPage((prev) => (prev > 1 ? prev - 1 : 1));
     scrollTop();
   }
 
-
-
   async function fetchData() {
     try {
-      const offset = calculateOffset(currentPage,postsPerPage);
-      const response = await axios.get("http://localhost:8055/items/novosti",{
-        params:{
-          limit:postsPerPage,
-          offset:offset
-        }
+      const offset = calculateOffset(currentPage, postsPerPage);
+      const response = await axios.get("http://localhost:8055/items/novosti", {
+        params: {
+          limit: postsPerPage,
+          offset: offset,
+        },
       });
       let novosti = response.data.data;
       setNovosti(novosti);
@@ -59,11 +58,35 @@ function Novosti() {
 
   useEffect(() => {
     fetchData();
-  }, [currentPage,postsPerPage]);
+  }, [currentPage, postsPerPage]);
 
   return (
     <div className="n-main">
       <p className="n-title">Novosti</p>
+
+      <div className="novosti-filter">
+        <Button disableElevation variant="contained">
+          Sve novosti
+        </Button>
+        <Button disableElevation variant="contained">
+          Turizam
+        </Button>
+        <Button disableElevation variant="contained">
+          Gastro
+        </Button>
+        <Button disableElevation variant="contained">
+          Sport
+        </Button>
+        <Button disableElevation variant="contained">
+          Kultura
+        </Button>
+        <Button disableElevation variant="contained">
+          Fitness
+        </Button>
+        <Button disableElevation variant="contained">
+          Destinacije
+        </Button>
+      </div>
 
       {novosti.length > 0 && (
         <div className="n-cards-div">
@@ -82,16 +105,24 @@ function Novosti() {
 
       <div className="pagination">
         <div onClick={Previous} className="pag">
-          <img style={{
-            transform:"rotate(180deg) translateY(-1px)",
-          }} src={ArrowIcon} alt="Next" />
+          <img
+            style={{
+              transform: "rotate(180deg) translateY(-1px)",
+            }}
+            src={ArrowIcon}
+            alt="Next"
+          />
           <p>Prethodni</p>
         </div>
         <div onClick={Next} className="pag">
           <p>Sljedeći</p>
-          <img style={{
-            transform:"translateY(1px)",
-          }} src={ArrowIcon} alt="Next" />
+          <img
+            style={{
+              transform: "translateY(1px)",
+            }}
+            src={ArrowIcon}
+            alt="Next"
+          />
         </div>
       </div>
 
