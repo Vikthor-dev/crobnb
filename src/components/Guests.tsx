@@ -96,8 +96,8 @@ function Guests() {
         }}
         PaperProps={{
             style: {
-              padding: "20px", // Add padding
-              width: "200px", // Set a wider width
+              padding: "20px",
+              width: "200px",
             },
           }}
       >
