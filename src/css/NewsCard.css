@@ -91,9 +91,16 @@
     .news-card-text{
       width: 234px;
       height: 99px;
+      margin-top: 10px;
+    }
+    .news-card-text p {
+      display: -webkit-box;
+      -webkit-line-clamp: 5; /* Limit to 2 lines on smaller screens */
+      -webkit-box-orient: vertical;
+      overflow: hidden;
     }
     .vidi-vise{
-      margin-top: 20px;
+      margin-top: 10px;
       width: 234px;
       height: 48px;
     }

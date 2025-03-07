@@ -3,6 +3,7 @@ import "../css/Novosti.css";
 import axios from "axios";
 import NewsCard from "../components/NewsCard";
 import Footer from "../components/Footer";
+import ArrowIcon from "../assets/arrow2.svg";
 
 function Novosti() {
   interface NewsItem {
@@ -48,6 +49,22 @@ function Novosti() {
           ))}
         </div>
       )}
+
+      <div className="pagination">
+        <div className="pag">
+          <img style={{
+            transform:"rotate(180deg) translateY(-1px)",
+          }} src={ArrowIcon} alt="Next" />
+          <p>Prethodni</p>
+        </div>
+        <div className="pag">
+          <p>Sljedeći</p>
+          <img style={{
+            transform:"translateY(1px)",
+          }} src={ArrowIcon} alt="Next" />
+        </div>
+      </div>
+
       <Footer />
     </div>
   );
