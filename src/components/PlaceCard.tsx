@@ -7,11 +7,14 @@ interface Hoteli {
   rating: number;
   name: string;
   price: number;
+  tecaj:number;
 }
 
-function PlaceCard({ image, city, rating, name, price }: Hoteli) {
+function PlaceCard({ image, city, rating, name, price , tecaj }: Hoteli) {
 
   const decimalNumber = price ? price.toFixed(2) : price;
+
+  const cijena_kune = (price * tecaj).toFixed(2);
 
   return (
     <div className="hoteli-card">
@@ -74,7 +77,7 @@ function PlaceCard({ image, city, rating, name, price }: Hoteli) {
               marginBottom: 5,
             }}
           >
-            791,12 HRK
+            {cijena_kune} HRK
           </p>
         </div>
       </div>

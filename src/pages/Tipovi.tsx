@@ -18,6 +18,7 @@ function Tipovi() {
     rating: number;
     name: string;
     price: number;
+    tecaj:number;
   }
 
   const [tipovi, setTipovi] = useState<Tip[]>([]);
@@ -31,6 +32,8 @@ function Tipovi() {
   const [turistplace, setTuristPlace] = useState<Smjestaji[]>([]);
 
   const [mobile, setMobile] = useState<Smjestaji[]>([]);
+
+  const [hrk, setHrk] = useState(0);
 
   async function fetchDataTipovi() {
     try {
@@ -162,6 +165,19 @@ function Tipovi() {
     }
   }
 
+  async function converter() {
+    try {
+      const response = await axios.get(
+        "https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/eur.json"
+      );
+      const tecaj = response.data.eur.hrk;
+      console.log("Test:", tecaj);
+      setHrk(tecaj); // Set the exchange rate in state
+    } catch (error) {
+      console.error("Error fetching currency data:", error);
+    }
+  }
+
   useEffect(() => {
     fetchDataTipovi();
     fetchHotels();
@@ -169,6 +185,7 @@ function Tipovi() {
     fetchVille();
     fetchTuristPlace();
     fetchMobile();
+    converter();
   }, []);
 
   return (
@@ -202,6 +219,7 @@ function Tipovi() {
                     name={hotel.name}
                     rating={hotel.rating}
                     price={hotel.price}
+                    tecaj = {hrk}
                   />
                 </div>
               ))}
@@ -223,6 +241,7 @@ function Tipovi() {
                       name={apartman.name}
                       rating={apartman.rating}
                       price={apartman.price}
+                      tecaj = {hrk}
                     />
                   </div>
                 ))}
@@ -294,6 +313,7 @@ function Tipovi() {
                     name={villa.name}
                     rating={villa.rating}
                     price={villa.price}
+                    tecaj = {hrk}
                   />
                 </div>
               ))}
@@ -315,6 +335,7 @@ function Tipovi() {
                       name={place.name}
                       rating={place.rating}
                       price={place.price}
+                      tecaj = {hrk}
                     />
                   </div>
                 ))}
@@ -387,6 +408,7 @@ function Tipovi() {
                     name={mob.name}
                     rating={mob.rating}
                     price={mob.price}
+                    tecaj = {hrk}
                   />
                 </div>
               ))}
