@@ -66,6 +66,17 @@
     text-decoration: underline;
 }
 
+.pag.disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.active-filter {
+    background-color: #00526C !important;
+    color: white !important;
+}
+
 @media only screen and (max-width: 600px) {
     .n-main {
         width: 100vw;
@@ -98,7 +109,8 @@
         width: 35%;
         align-items: center;
     }
-    .novosti-filter{
+
+    .novosti-filter {
         width: 70vw;
         flex-wrap: wrap;
     }
