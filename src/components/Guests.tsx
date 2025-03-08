@@ -7,7 +7,11 @@ import MinusIcon from "../assets/minus.svg";
 import "../css/Guests.css";
 import Popover from "@mui/material/Popover";
 
-function Guests() {
+interface GuestProp {
+  guestChange:(adult:number,child:number) => void;
+}
+
+function Guests({guestChange}:GuestProp) {
   const [guests, setGuests] = React.useState("Odaberi");
   let [adults, setAdults] = React.useState(0);
   let [children, setChildren] = React.useState(0);
@@ -31,6 +35,7 @@ function Guests() {
     setAnchorEl(null);
     setAdultsDisplay(adults);
     setChildrenDisplay(children);
+    guestChange(adults,children);
   };
 
   const adultsCounter = () => {
@@ -42,11 +47,11 @@ function Guests() {
   };
 
   const adultsCounterMinus = () => {
-    setAdults((prev) => Math.max(prev - 1, 0)); // Prevent going below 0
+    setAdults((prev) => Math.max(prev - 1, 0));
   };
 
   const childrenCounterMinus = () => {
-    setChildren((prev) => Math.max(prev - 1, 0)); // Prevent going below 0
+    setChildren((prev) => Math.max(prev - 1, 0)); 
   };
 
   function renderSelectedValue(selected: string) {

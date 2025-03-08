@@ -4,26 +4,33 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import BedIcon from "../assets/bed.svg";
 
-function Accomodation() {
+interface AccomodationProps {
+  onAccomodationChange: (accomodation: string) => void;
+}
+
+function Accomodation({ onAccomodationChange }: AccomodationProps) {
   const [smjestaj, setSmjestaj] = React.useState("Odaberi tip");
 
   const handleChange = (event: SelectChangeEvent<string>) => {
-    setSmjestaj(event.target.value as string);
+    const smjestaj = event.target.value as string;
+    setSmjestaj(smjestaj);
+    onAccomodationChange(smjestaj);
   };
 
   const tipovi_object = [
-    {value:"hoteli",label:"Hoteli"},
-    {value:"apartmani",label:"Apartmani"},
-    {value:"ville",label:"Hoteli"},
-    {value:"turisticka_naselja",label:"Turistička naselja"},
-    {value:"mobilne_kucice",label:"Mobilne kućice"},
-  ]
+    { value: "hoteli", label: "Hoteli" },
+    { value: "apartmani", label: "Apartmani" },
+    { value: "ville", label: "Ville" },
+    { value: "turisticka_naselja", label: "Turistička naselja" },
+    { value: "mobilne_kucice", label: "Mobilne kućice" },
+  ];
 
-  function getLabel(value:string){
-    const selectedOption = tipovi_object.find((option)=>option.value === value)
-    return selectedOption ? selectedOption.label : "Odaberi"
+  function getLabel(value: string) {
+    const selectedOption = tipovi_object.find(
+      (option) => option.value === value
+    );
+    return selectedOption ? selectedOption.label : "Odaberi tip";
   }
-
 
   function renderSelectedValue(selected: string) {
     if (selected === "Odaberi tip") {
@@ -70,7 +77,7 @@ function Accomodation() {
         >
           <MenuItem value="hoteli">Hoteli</MenuItem>
           <MenuItem value="apartmani">Apartmani</MenuItem>
-          <MenuItem value="turusticka_naselja">Turistička naselja</MenuItem>
+          <MenuItem value="turisticka_naselja">Turistička naselja</MenuItem>
           <MenuItem value="ville">Ville</MenuItem>
           <MenuItem value="mobilne_kucice">Mobilne kućice</MenuItem>
         </Select>

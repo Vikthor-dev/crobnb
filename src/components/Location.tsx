@@ -4,7 +4,12 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import LocationIcon from "../assets/location.svg";
 
-function Location() {
+
+interface LocationProps {
+  onLocationChange: (location: string) => void;
+}
+
+function Location({onLocationChange}:LocationProps) {
   const [lokacija, setLokacija] = React.useState("Odaberi");
 
   const locationOptions = [
@@ -18,7 +23,9 @@ function Location() {
   ];
 
   const handleChange = (event: SelectChangeEvent<string>) => {
-    setLokacija(event.target.value as string);
+    const selectedValue = event.target.value as string;
+    setLokacija(selectedValue);
+    onLocationChange(selectedValue); 
   };
 
 
