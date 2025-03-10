@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Tipovi from "./pages/Tipovi";
 import RegijeFull from "./pages/RegijeFull";
 import Novosti from "./pages/Novosti";
+import Results from "./pages/Results";
 
 function App() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -23,6 +24,7 @@ function App() {
           <Route path="/tipovi" element={<Tipovi/>}></Route>
           <Route path="/regije" element={<RegijeFull/>}></Route>
           <Route path="/novosti" element={<Novosti/>}></Route>
+          <Route path="/results" element={<Results/>}></Route>
         </Routes>
         <Navbar isDrawerOpen={drawerOpen} toggleNavbarDrawer={toggleDrawer} />
         <Navigation

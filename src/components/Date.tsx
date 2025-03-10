@@ -9,7 +9,11 @@ import Popover from "@mui/material/Popover";
 import { DateRange } from "@mui/x-date-pickers-pro/models";
 import { Dayjs } from "dayjs";
 
-function Date() {
+interface DateProps{
+  handleDate:(datum:DateRange<Dayjs>) => void
+}
+
+function Date({handleDate}:DateProps) {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [date,setDate] = React.useState<DateRange<Dayjs>>([null,null])
 
@@ -19,6 +23,7 @@ function Date() {
 
   const handleClose = () => {
     setAnchorEl(null);
+    handleDate(date);
   };
 
   const open = Boolean(anchorEl);
