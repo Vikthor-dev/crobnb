@@ -5,6 +5,7 @@ import Search from "../components/Search";
 import dayjs from "dayjs";
 import arrowDown from "../assets/arrow3.svg";
 import ResultsCard from "../components/ResultsCard";
+import Footer from "../components/Footer";
 
 function Results() {
   const location = useLocation();
@@ -35,6 +36,16 @@ function Results() {
       <Search />
       <div className="results-div">
 
+        <div className="filters-div">
+          <div className="filters-first">
+            <p className="filters-first-text">
+              Filtriraj po:
+            </p>
+            <p className="filters-first-reset">
+              Resetiraj
+            </p>
+          </div>
+        </div>
         
         <div className="results">
           <div className="results-sort">
@@ -58,9 +69,15 @@ function Results() {
             </div>
           </div>
           <ResultsCard />
+          <ResultsCard />
+          <ResultsCard />
+          <ResultsCard />
+          <ResultsCard />
+          <ResultsCard />
         </div>
 
       </div>
+      <Footer/>
     </div>
   );
 }

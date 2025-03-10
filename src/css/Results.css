@@ -52,7 +52,38 @@
     cursor: pointer;
 }
 
-
+.filters-div{
+    width: 384px;
+    height: 821px;
+    border-style: solid;
+    border-color:#D9DADD;
+    border-width: 1px;
+    border-radius: 5px;
+    padding: 24px 16px 24px 16px;
+}
+.filters-first{
+    width: 352px;
+    height: 48px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.filters-first-text{
+    font-family: "Mulish", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    color: #202532;
+}
+.filters-first-reset{
+    font-family: "Mulish", sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: #337589;
+}
+.filters-first-reset:hover{
+    cursor: pointer;
+}
 
 
 @media only screen and (max-width:600px) {
