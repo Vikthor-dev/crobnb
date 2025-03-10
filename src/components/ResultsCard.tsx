@@ -11,15 +11,19 @@ import welness from "../assets/details/welness.svg";
 import caffee from "../assets/details/caffee.svg";
 import restoran from "../assets/details/restoran.svg";
 import Button from "@mui/material/Button/Button";
+import HeartMobile from "../assets/heartMobile.svg"
 
 function ResultsCard() {
   return (
     <div className="result-card">
+    <div className="result-img-div">
     <img
       src="https://shorturl.at/urAWW"
       alt="Smjestaj"
       className="result-card-img"
     />
+    <img src={HeartMobile} alt="Favourite" className="fav-icon-mobile" />
+    </div>
 
     <div className="results-card-details">
       <div className="results-card-first">

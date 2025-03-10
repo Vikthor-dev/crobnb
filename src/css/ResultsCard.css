@@ -141,6 +141,16 @@
     font-size: 16px,
 }
 
+.result-img-div {
+    position: relative;
+}
+.fav-icon-mobile{
+    display: none;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+}
+
 @media only screen and (max-width:600px) {
     .result-card {
         width: 80vw;
@@ -170,7 +180,7 @@
     }
 
     .fav-icon {
-        display: none;
+        display: none !important;
     }
 
     .results-card-second {
@@ -209,13 +219,20 @@
         height: 89px;
         width: 100px;
     }
-    .results-card-fifth-price-eur{
+
+    .results-card-fifth-price-eur {
         font-size: 22px;
         width: 140px;
     }
-    .results-card-fifth-btn{
+
+    .results-card-fifth-btn {
         align-self: center;
         width: 310px !important;
         transform: translateY(20px);
+    }
+    .fav-icon-mobile{
+        display: flex;
+        top: 5%;
+        right: 8%;
     }
 }
