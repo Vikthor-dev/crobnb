@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import "../css/Results.css";
 import Search from "../components/Search";
 import dayjs from "dayjs";
-import arrowDown from "../assets/arrow3.svg";
 import ResultsCard from "../components/ResultsCard";
 import Footer from "../components/Footer";
 import Filter from "../components/Filter";
+import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 
 function Results() {
   const location = useLocation();
@@ -41,24 +41,19 @@ function Results() {
         <div className="results">
           <div className="results-sort">
             <p className="results-sort-title">{length} smještaja pronađeno</p>
-            <div className="results-sort-right ">
-              <p
-                style={{
-                  fontFamily: "Mulish,sans-serif",
-                  fontWeight: 400,
-                  fontSize: 16,
-                  color: "#50545E",
-                }}
-              >
-                Sortiraj po :
-              </p>
-              <img
-                src={arrowDown}
-                alt="Arrow down"
-                style={{ width: 22, height: 22, marginLeft: 10 }}
-              />
+            <div className="results-sort-right">
+              <FormControl variant="standard" sx={{ minWidth: 120 }}>
+                <InputLabel>Sortiraj po:</InputLabel>
+                <Select>
+                  <MenuItem value="price_asc" >Cijena: niža prema višoj</MenuItem>
+                  <MenuItem value="price_desc">Cijena: viša prema nižoj</MenuItem>
+                  <MenuItem value="rating_asc">Zvijezdice: niže prema višem</MenuItem>
+                  <MenuItem value="rating_desc">Zvijezdice: više prema nižem</MenuItem>
+                </Select>
+              </FormControl>
             </div>
           </div>
+
           <ResultsCard />
           <ResultsCard />
           <ResultsCard />
