@@ -5,7 +5,7 @@ import Guests from "../components/Guests";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import "../css/Search.css";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { DateRange } from "@mui/x-date-pickers-pro/models";
@@ -21,7 +21,22 @@ function Search() {
   const navigate = useNavigate();
 
   function handleLokaction(lokacija: string) {
-    setLokacija(lokacija);
+    const lokacijaMap: Record<string, string> = {
+      Srhr: "Središnja Hrvatska",
+      Isthr: "Istočna Hrvatska",
+      Grhr: "Gorska Hrvatska",
+      Sjvdal: "Sjeverna Dalmacija",
+      Srdal: "Središnja Dalmacija",
+      Jzdal: "Južna Dalmacija",
+      Istkv: "Istra i Kvarner",
+    };
+
+    const novaLokacija = lokacijaMap[lokacija];
+
+    if (novaLokacija) {
+      setLokacija(novaLokacija);
+    }
+
     console.log("Lokacija filter:", lokacija);
   }
 
@@ -74,13 +89,20 @@ function Search() {
       const startDate = datum[0]?.format("YYYY-MM-DD") || null;
       const endDate = datum[1]?.format("YYYY-MM-DD") || null;
 
+      const encodedLokacija = encodeURIComponent(lokacija ?? "");
+      const encodedSmjestaj = encodeURIComponent(smjestaj ?? "");
+      const encodedAdults = encodeURIComponent(adults?.toString() ?? "0");
+      const encodedChildren = encodeURIComponent(children?.toString() ?? "0");
+
       navigate(
-        `/results?data=${encodedResult}&startDate=${startDate}&endDate=${endDate}`
+        `/results?data=${encodedResult}&startDate=${startDate}&endDate=${endDate}&lokacija=${encodedLokacija}&smjestaj=${encodedSmjestaj}&adults=${encodedAdults}&children=${encodedChildren}`
       );
     } catch (error) {
       console.log("Error fetching data:", error);
     }
   }
+
+  useEffect(() => {}, [lokacija, smjestaj, adults, children]);
 
   return (
     <div>
