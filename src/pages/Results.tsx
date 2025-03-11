@@ -44,7 +44,7 @@ function Results() {
   const adults = parseInt(queryParams.get("adults") || "0", 10);
   const children = parseInt(queryParams.get("children") || "0", 10);
 
-  const [hideSearch, setHideSearch] = useState<boolean>(false);
+  const [hideSearch, setHideSearch] = useState<boolean>(true);
 
   function showSearch() {
     setHideSearch(!hideSearch);
@@ -63,7 +63,15 @@ function Results() {
   return (
     <div
       className={hideSearch ? "results-main" : "results-div-custom"}>
-      {hideSearch ? undefined : <Search />}
+      
+      <div className="search-desktop">
+        <Search />
+      </div>
+      {!hideSearch && (
+        <div className="search-mobile">
+          <Search />
+        </div>
+      )}
 
       <div
         className="argumenti-mobile"

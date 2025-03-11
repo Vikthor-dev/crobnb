@@ -62,7 +62,13 @@
 .argumenti-mobile {
     display: none;
 }
-
+.search-desktop {
+    display: block;
+  }
+  
+  .search-mobile {
+    display: none;
+  }
 
 @media only screen and (max-width:600px) {
     .results-main {
@@ -156,4 +162,11 @@
     .results-main.hide-search {
         margin-top: 0;
     }
+    .search-desktop {
+        display: none;
+      }
+    
+      .search-mobile {
+        display: block;
+      }
 }
