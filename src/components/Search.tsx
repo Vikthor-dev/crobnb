@@ -13,6 +13,7 @@ import { Dayjs } from "dayjs";
 
 function Search() {
   const [lokacija, setLokacija] = useState<string | null>(null);
+  const [lokacijaSearch , setLokacijaSearch] = useState<string | null>(null);
   const [smjestaj, setSmjestaj] = useState<string | null>(null);
   const [adults, setAdults] = useState<number | null>(null);
   const [children, setChildren] = useState<number | null>(null);
@@ -30,6 +31,8 @@ function Search() {
       Jzdal: "Južna Dalmacija",
       Istkv: "Istra i Kvarner",
     };
+
+    setLokacijaSearch(lokacija);
 
     const novaLokacija = lokacijaMap[lokacija];
 
@@ -67,7 +70,7 @@ function Search() {
           params: {
             filter: {
               regija: {
-                _eq: lokacija,
+                _eq: lokacijaSearch,
               },
               category: {
                 _eq: smjestaj,

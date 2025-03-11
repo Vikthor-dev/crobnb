@@ -5,6 +5,13 @@
     justify-content: center;
     align-items: center;
 }
+.results-div-custom {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .results-div {
     width: 1216px;
@@ -62,6 +69,10 @@
         margin-top: 105px;
         width: 100vw;
     }
+    .results-div-custom {
+        margin-top: 275px;
+        width: 100vw;
+    }
 
     .results-div {
         width: 100vw;
@@ -98,34 +109,39 @@
         border-radius: 5px;
         margin-top: 10px;
     }
-    .argumenti-mobile-first{
+
+    .argumenti-mobile-first {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         width: 100%;
     }
-    .argumenti-date{
+
+    .argumenti-date {
         display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
         gap: 10px;
     }
-    .argumenti-date p{
+
+    .argumenti-date p {
         font-family: "Mulish", sans-serif;
         font-weight: 400;
         font-size: 16px;
         color: #50545E;
     }
-    .argumenti-mobile-second{
+
+    .argumenti-mobile-second {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
         align-items: flex-start;
         width: 100%;
     }
-      .argumenti-mobile-third{
+
+    .argumenti-mobile-third {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -133,9 +149,11 @@
         width: 100%;
         gap: 20px;
     }
-    .argumenti-trazi-icon:hover{
+
+    .argumenti-trazi-icon:hover {
         cursor: pointer;
     }
-
-
+    .results-main.hide-search {
+        margin-top: 0;
+    }
 }
