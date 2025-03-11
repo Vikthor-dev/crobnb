@@ -44,12 +44,33 @@ function ResultsCard({
     }
   }
 
+  const[kategorija,setKat] = useState<string | null>(null)
+
+  function categorySetter(){
+    if(category === "hoteli"){
+      setKat("HOTELI")
+    }
+    if(category === "apartmani"){
+      setKat("APARTMANI")
+    }
+    if(category === "ville"){
+      setKat("VILLE")
+    }
+    if(category === "mobilne_kucice"){
+      setKat("MOBILNE KUĆICE")
+    }
+    if(category === "turisticka_naselja"){
+      setKat("TURISTIČKA NASELJA")
+    }
+  }
+
   const decimalNumber = price ? price.toFixed(2) : price;
 
   const cijena_kune = (price * hrk).toFixed(2);
 
   useEffect(() => {
     converter();
+    categorySetter();
   },[]);
 
   return (
@@ -61,7 +82,7 @@ function ResultsCard({
 
       <div className="results-card-details">
         <div className="results-card-first">
-          <p className="results-card-first-category">{category}</p>
+          <p className="results-card-first-category">{kategorija}</p>
           <HeartIcon
             className="fav-icon"
             style={{ height: 18, width: 20, color: "#00526C" }}
