@@ -8,7 +8,7 @@
 
 .results-div {
     width: 1216px;
-    height: 1985px;
+    height: fit-content;
     display: flex;
     flex-direction: row;
     justify-content: center;

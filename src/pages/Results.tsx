@@ -9,6 +9,7 @@ import Filter from "../components/Filter";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 
 function Results() {
+
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
 
@@ -54,12 +55,12 @@ function Results() {
             </div>
           </div>
 
-          <ResultsCard />
-          <ResultsCard />
-          <ResultsCard />
-          <ResultsCard />
-          <ResultsCard />
-          <ResultsCard />
+          {
+            results.map((result,index)=>(
+              <ResultsCard key={index} image={result.image} name={result.name} rating={result.rating} price={result.price} category={result.category}  />
+            ))
+          }
+        
         </div>
       </div>
       <Footer />
