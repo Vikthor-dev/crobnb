@@ -36,13 +36,13 @@ function Filter() {
             sx={{
               color: "#337589",
               "& .MuiSlider-thumb": {
-                color: "#337589", // Thumb color
+                color: "#337589",
               },
               "& .MuiSlider-track": {
-                color: "#337589", // Track color
+                color: "#337589",
               },
               "& .MuiSlider-rail": {
-                color: "#D9DADD", // Rail color (optional)
+                color: "#D9DADD",
               },
             }}
           />
