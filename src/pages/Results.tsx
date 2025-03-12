@@ -46,6 +46,22 @@ function Results() {
     setHideSearch(!hideSearch);
   }
 
+  const [sortOrder, setSortOrder] = useState("");
+  const sortedResults = [...results].sort((a, b) => {
+    switch (sortOrder) {
+      case "price_asc":
+        return a.price - b.price;
+      case "price_desc":
+        return b.price - a.price;
+      case "rating_asc":
+        return a.rating - b.rating;
+      case "rating_desc":
+        return b.rating - a.rating;
+      default:
+        return 0;
+    }
+  });
+
   useEffect(() => {
     console.log("Search results:", results);
     console.log("Start date:", startDate);
@@ -54,12 +70,10 @@ function Results() {
     console.log("Smjestaj:", smjestaj);
     console.log("Adults:", adults);
     console.log("Children:", children);
-  }, []);
+  }, [results, startDate, endDate, lokacija, smjestaj, adults, children]);
 
   return (
-    <div
-      className={hideSearch ? "results-main" : "results-div-custom"}>
-      
+    <div className={hideSearch ? "results-main" : "results-div-custom"}>
       <div className="search-desktop">
         <Search />
       </div>
@@ -69,7 +83,14 @@ function Results() {
         </div>
       )}
 
-      <ArgumentiMobile startDate={startDate} endDate={endDate} lokacija={lokacija} adults={adults} children={children} showHideSearch={showSearch} />
+      <ArgumentiMobile
+        startDate={startDate}
+        endDate={endDate}
+        lokacija={lokacija}
+        adults={adults}
+        children={children}
+        showHideSearch={showSearch}
+      />
 
       <div className="results-div">
         <Filter />
@@ -79,7 +100,10 @@ function Results() {
             <div className="results-sort-right">
               <FormControl variant="standard" sx={{ minWidth: 120 }}>
                 <InputLabel>Sortiraj po:</InputLabel>
-                <Select>
+                <Select
+                  value={sortOrder}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                >
                   <MenuItem value="price_asc">
                     Cijena: niža prema višoj
                   </MenuItem>
@@ -97,7 +121,7 @@ function Results() {
             </div>
           </div>
 
-          {results.map((result, index) => (
+          {sortedResults.map((result, index) => (
             <ResultsCard
               key={index}
               image={result.image}
