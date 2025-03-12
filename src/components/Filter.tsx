@@ -5,12 +5,17 @@ import Rating from "@mui/material/Rating";
 import { Button } from "@mui/material";
 import { useState } from "react";
 
-function Filter() {
+interface FilterProp{
+  determinePriceRange:(value:number[]) => void
+}
+
+function Filter({determinePriceRange}:FilterProp) {
   const [filterPriceRange, setValue] = useState<number[]>([0, 100]);
 
   const handleFilterPrice = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
     console.log(event);
+    determinePriceRange(newValue as number[]);
   };
   return (
     <div className="filters-div">

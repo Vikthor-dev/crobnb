@@ -46,8 +46,25 @@ function Results() {
     setHideSearch(!hideSearch);
   }
 
+  
+  const [priceRange,setPriceRange] = useState<number[]>([])
+  function handlePriceRange(value:number[]){
+    setPriceRange(value);
+    console.log("Price range:",value)
+  }
+
+
+  const filteredResults = results.filter((item) => {
+    if (priceRange.length === 0) return true;
+  
+    return item.price >= priceRange[0] && item.price <= priceRange[1];
+  });
+  
+  
+
+
   const [sortOrder, setSortOrder] = useState("");
-  const sortedResults = [...results].sort((a, b) => {
+  const sortedResults = [...filteredResults].sort((a, b) => {
     switch (sortOrder) {
       case "price_asc":
         return a.price - b.price;
@@ -61,6 +78,7 @@ function Results() {
         return 0;
     }
   });
+
 
   useEffect(() => {
     console.log("Search results:", results);
@@ -93,7 +111,7 @@ function Results() {
       />
 
       <div className="results-div">
-        <Filter />
+        <Filter determinePriceRange={handlePriceRange} />
         <div className="results">
           <div className="results-sort">
             <p className="results-sort-title">{length} smještaja pronađeno</p>
