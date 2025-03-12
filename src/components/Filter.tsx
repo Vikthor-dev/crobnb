@@ -7,9 +7,10 @@ import { useState } from "react";
 
 interface FilterProp{
   determinePriceRange:(value:number[]) => void
+  determineRatings:(value:number[]) =>void
 }
 
-function Filter({determinePriceRange}:FilterProp) {
+function Filter({determinePriceRange,determineRatings}:FilterProp) {
   const [filterPriceRange, setValue] = useState<number[]>([0, 100]);
 
   const handleFilterPrice = (event: Event, newValue: number | number[]) => {
@@ -19,6 +20,16 @@ function Filter({determinePriceRange}:FilterProp) {
 
   function applyFilters(){
     determinePriceRange(filterPriceRange as number[]);
+    determineRatings(ratingsFilter as number[]);
+  }
+
+  const [ratingsFilter,setRatingsFilter] = useState<number[]>([])
+  function updateRatingsFilter(value:number){
+    if(ratingsFilter.includes(value)){
+      return;
+    }else{
+      setRatingsFilter([...ratingsFilter,value])
+    }
   }
 
   return (
@@ -63,7 +74,7 @@ function Filter({determinePriceRange}:FilterProp) {
         <p>Broj zvijezdica</p>
         <div className="filters-fourth-ratings-div">
           <div className="filters-fourth-ratings">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
+            <Checkbox onChange={()=>updateRatingsFilter(5)} sx={{ padding: 0, margin: 0 }} />
             <Rating
               className="results-rating"
               value={5}
@@ -72,7 +83,7 @@ function Filter({determinePriceRange}:FilterProp) {
             />
           </div>
           <div className="filters-fourth-ratings">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
+            <Checkbox onChange={()=>updateRatingsFilter(4)}  sx={{ padding: 0, margin: 0 }} />
             <Rating
               className="results-rating"
               value={4}
@@ -81,7 +92,7 @@ function Filter({determinePriceRange}:FilterProp) {
             />
           </div>
           <div className="filters-fourth-ratings">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
+            <Checkbox onChange={()=>updateRatingsFilter(3)}  sx={{ padding: 0, margin: 0 }} />
             <Rating
               className="results-rating"
               value={3}
@@ -90,7 +101,7 @@ function Filter({determinePriceRange}:FilterProp) {
             />
           </div>
           <div className="filters-fourth-ratings">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
+            <Checkbox onChange={()=>updateRatingsFilter(2)}  sx={{ padding: 0, margin: 0 }} />
             <Rating
               className="results-rating"
               value={2}
@@ -99,7 +110,7 @@ function Filter({determinePriceRange}:FilterProp) {
             />
           </div>
           <div className="filters-fourth-ratings">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
+            <Checkbox onChange={()=>updateRatingsFilter(1)}  sx={{ padding: 0, margin: 0 }} />
             <Rating
               className="results-rating"
               value={1}

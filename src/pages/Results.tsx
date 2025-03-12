@@ -31,7 +31,7 @@ function Results() {
       ? endDateDayjs.format("DD.MM.YYYY")
       : null;
 
-  const length: number = results.length;
+  const[length,setLength] = useState<number>(results.length)
 
   const lokacija = decodeURIComponent(
     queryParams.get("lokacija") || "Unesite lokaciju"
@@ -53,14 +53,31 @@ function Results() {
     console.log("Price range:",value)
   }
 
+  const[filterRatings,setFilterRatings] = useState<number[]>([])
+  function handleRatings(value:number[]){
+    setFilterRatings(value);
+    console.log("Filter ratings:",value)
+  }
 
   const filteredResults = results.filter((item) => {
-    if (priceRange.length === 0) return true;
+    if (priceRange.length === 0 && filterRatings.length === 0) return true;
   
-    return item.price >= priceRange[0] && item.price <= priceRange[1];
+    const matchesPrice =
+      priceRange.length === 0 ||
+      (item.price >= priceRange[0] && item.price <= priceRange[1]);
+  
+    const matchesRating =
+      filterRatings.length === 0 || filterRatings.includes(item.rating);
+  
+    return matchesPrice && matchesRating;
   });
   
+
+
   
+  useEffect(() => {
+    setLength(filteredResults.length);
+  }, [filteredResults]);
 
 
   const [sortOrder, setSortOrder] = useState("");
@@ -111,7 +128,7 @@ function Results() {
       />
 
       <div className="results-div">
-        <Filter determinePriceRange={handlePriceRange} />
+        <Filter determinePriceRange={handlePriceRange} determineRatings={handleRatings} />
         <div className="results">
           <div className="results-sort">
             <p className="results-sort-title">{length} smještaja pronađeno</p>
