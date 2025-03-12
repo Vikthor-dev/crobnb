@@ -15,8 +15,12 @@ function Filter({determinePriceRange}:FilterProp) {
   const handleFilterPrice = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
     console.log(event);
-    determinePriceRange(newValue as number[]);
   };
+
+  function applyFilters(){
+    determinePriceRange(filterPriceRange as number[]);
+  }
+
   return (
     <div className="filters-div">
       <div className="filters-first">
@@ -138,7 +142,7 @@ function Filter({determinePriceRange}:FilterProp) {
         </div>
       </div>
 
-      <Button className="filters-btn">Primjeni filter</Button>
+      <Button onClick={applyFilters} className="filters-btn">Primjeni filter</Button>
     </div>
   );
 }
