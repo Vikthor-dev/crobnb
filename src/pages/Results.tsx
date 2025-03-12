@@ -31,7 +31,7 @@ function Results() {
       ? endDateDayjs.format("DD.MM.YYYY")
       : null;
 
-  const[length,setLength] = useState<number>(results.length)
+  const [length, setLength] = useState<number>(results.length);
 
   const lokacija = decodeURIComponent(
     queryParams.get("lokacija") || "Unesite lokaciju"
@@ -46,39 +46,39 @@ function Results() {
     setHideSearch(!hideSearch);
   }
 
-  
-  const [priceRange,setPriceRange] = useState<number[]>([])
-  function handlePriceRange(value:number[]){
+  const [priceRange, setPriceRange] = useState<number[]>([]);
+  function handlePriceRange(value: number[]) {
     setPriceRange(value);
-    console.log("Price range:",value)
+    console.log("Price range:", value);
   }
 
-  const[filterRatings,setFilterRatings] = useState<number[]>([])
-  function handleRatings(value:number[]){
+  const [filterRatings, setFilterRatings] = useState<number[]>([]);
+  function handleRatings(value: number[]) {
     setFilterRatings(value);
-    console.log("Filter ratings:",value)
+    console.log("Filter ratings:", value);
   }
 
   const filteredResults = results.filter((item) => {
     if (priceRange.length === 0 && filterRatings.length === 0) return true;
-  
+
     const matchesPrice =
       priceRange.length === 0 ||
       (item.price >= priceRange[0] && item.price <= priceRange[1]);
-  
+
     const matchesRating =
       filterRatings.length === 0 || filterRatings.includes(item.rating);
-  
+
     return matchesPrice && matchesRating;
   });
-  
 
+  const scrollTop = () => {
+    globalThis.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  };
 
-  
   useEffect(() => {
     setLength(filteredResults.length);
+    scrollTop();
   }, [filteredResults]);
-
 
   const [sortOrder, setSortOrder] = useState("");
   const sortedResults = [...filteredResults].sort((a, b) => {
@@ -95,7 +95,6 @@ function Results() {
         return 0;
     }
   });
-
 
   useEffect(() => {
     console.log("Search results:", results);
@@ -128,7 +127,10 @@ function Results() {
       />
 
       <div className="results-div">
-        <Filter determinePriceRange={handlePriceRange} determineRatings={handleRatings} />
+        <Filter
+          determinePriceRange={handlePriceRange}
+          determineRatings={handleRatings}
+        />
         <div className="results">
           <div className="results-sort">
             <p className="results-sort-title">{length} smještaja pronađeno</p>
