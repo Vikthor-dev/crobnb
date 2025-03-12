@@ -24,12 +24,14 @@ function Filter({determinePriceRange,determineRatings}:FilterProp) {
   }
 
   const [ratingsFilter,setRatingsFilter] = useState<number[]>([])
-  function updateRatingsFilter(value:number){
-    if(ratingsFilter.includes(value)){
-      return;
-    }else{
-      setRatingsFilter([...ratingsFilter,value])
-    }
+  function updateRatingsFilter(value: number) {
+    setRatingsFilter((prevRatingsFilter) => {
+      if (prevRatingsFilter.includes(value)) {
+        return prevRatingsFilter.filter((rating) => rating !== value);
+      } else {
+        return [...prevRatingsFilter, value];
+      }
+    });
   }
 
   return (
