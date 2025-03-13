@@ -8,6 +8,8 @@ import Footer from "../components/Footer";
 import Filter from "../components/Filter";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import ArgumentiMobile from "../components/ArgumentiMobile";
+import FilterIconMobile from "../assets/filterIconMobile.svg"
+import SortIconMobile from "../assets/filterIconMobile.svg"
 
 function Results() {
   const location = useLocation();
@@ -125,6 +127,17 @@ function Results() {
         children={children}
         showHideSearch={showSearch}
       />
+
+      <div className="filter-sort-mobile">
+        <div className="filter-sort-mob-div">
+          <img src={FilterIconMobile} alt="Filter" style={{height:24,width:24}} />
+          <p>Filtriraj po</p>
+        </div>
+        <div className="filter-sort-mob-div">
+        <img src={SortIconMobile} alt="Sort" style={{height:24,width:24}} />
+        <p>Sortiraj po</p>
+        </div>
+      </div>
 
       <div className="results-div">
         <Filter
