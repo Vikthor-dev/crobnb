@@ -8,8 +8,9 @@ import Footer from "../components/Footer";
 import Filter from "../components/Filter";
 import { FormControl, InputLabel, Select, MenuItem } from "@mui/material";
 import ArgumentiMobile from "../components/ArgumentiMobile";
-import FilterIconMobile from "../assets/filterIconMobile.svg"
-import SortIconMobile from "../assets/filterIconMobile.svg"
+import FilterIconMobile from "../assets/filterIconMobile.svg";
+import SortIconMobile from "../assets/filterIconMobile.svg";
+import FilterMobile from "../components/FilterMobile";
 
 function Results() {
   const location = useLocation();
@@ -108,6 +109,11 @@ function Results() {
     console.log("Children:", children);
   }, [results, startDate, endDate, lokacija, smjestaj, adults, children]);
 
+  const [isFilterMobile, setFilterMobile] = useState<boolean>(false);
+  function handleFilterMobile() {
+    setFilterMobile(!isFilterMobile);
+  }
+
   return (
     <div className={hideSearch ? "results-main" : "results-div-custom"}>
       <div className="search-desktop">
@@ -129,21 +135,38 @@ function Results() {
       />
 
       <div className="filter-sort-mobile">
-        <div className="filter-sort-mob-div">
-          <img src={FilterIconMobile} alt="Filter" style={{height:24,width:24}} />
+        <div onClick={handleFilterMobile} className="filter-sort-mob-div">
+          <img
+            src={FilterIconMobile}
+            alt="Filter"
+            style={{ height: 24, width: 24 }}
+          />
           <p>Filtriraj po</p>
         </div>
         <div className="filter-sort-mob-div">
-        <img src={SortIconMobile} alt="Sort" style={{height:24,width:24}} />
-        <p>Sortiraj po</p>
+          <img
+            src={SortIconMobile}
+            alt="Sort"
+            style={{ height: 24, width: 24 }}
+          />
+          <p>Sortiraj po</p>
         </div>
       </div>
+      <FilterMobile
+        isOpen={isFilterMobile}
+        toggleFilter={handleFilterMobile}
+        updatePriceRangeMob={handlePriceRange}
+        updateRatingsMob={handleRatings}
+      />
 
       <div className="results-div">
-        <Filter
-          determinePriceRange={handlePriceRange}
-          determineRatings={handleRatings}
-        />
+        <div className="results-div-filter">
+          <Filter
+            determinePriceRange={handlePriceRange}
+            determineRatings={handleRatings}
+          />
+        </div>
+
         <div className="results">
           <div className="results-sort">
             <p className="results-sort-title">{length} smještaja pronađeno</p>

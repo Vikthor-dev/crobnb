@@ -141,4 +141,7 @@
         align-items: center;
         justify-content: center;
     }
+    .results-div-filter{
+        display: none;
+    }
 }

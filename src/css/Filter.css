@@ -161,6 +161,30 @@
 
 @media only screen and (max-width:600px){
     .filters-div{
-        display: none;
+        width: 90vw;
+    }
+    .filters-first{
+        width: 90vw;
+    }
+    .line-break{
+        width: 90vw;
+    }
+    .filters-second {
+        width: 90vw;
+    }
+    .filters-third{
+        width: 90vw;
+    }
+    .filters-slider{
+        width: 90vw;
+    }
+    .filters-fourth{
+        width: 90vw;
+    }
+    .filters-fifth{
+        width: 90vw;
+    }
+    .filters-btn{
+        width: 90vw;
     }
 }
