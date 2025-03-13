@@ -123,6 +123,9 @@ function Results() {
   function handleSortValueMobile(value:string){
     setSortOrder(value);
   }
+  function closeFilter(){
+    return;
+  }
 
 
   return (
@@ -176,6 +179,7 @@ function Results() {
           <Filter
             determinePriceRange={handlePriceRange}
             determineRatings={handleRatings}
+            closeFilter={closeFilter}
           />
         </div>
 

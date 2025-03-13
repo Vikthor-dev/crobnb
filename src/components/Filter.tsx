@@ -5,12 +5,13 @@ import Rating from "@mui/material/Rating";
 import { Button } from "@mui/material";
 import { useState } from "react";
 
-interface FilterProp{
-  determinePriceRange:(value:number[]) => void
-  determineRatings:(value:number[]) =>void
+interface FilterProp {
+  determinePriceRange: (value: number[]) => void;
+  determineRatings: (value: number[]) => void;
+  closeFilter:()=>void;
 }
 
-function Filter({determinePriceRange,determineRatings}:FilterProp) {
+function Filter({ determinePriceRange, determineRatings,closeFilter }: FilterProp) {
   const [filterPriceRange, setValue] = useState<number[]>([0, 100]);
 
   const handleFilterPrice = (event: Event, newValue: number | number[]) => {
@@ -18,12 +19,13 @@ function Filter({determinePriceRange,determineRatings}:FilterProp) {
     console.log(event);
   };
 
-  function applyFilters(){
+  function applyFilters() {
     determinePriceRange(filterPriceRange as number[]);
     determineRatings(ratingsFilter as number[]);
+    closeFilter();
   }
 
-  const [ratingsFilter,setRatingsFilter] = useState<number[]>([])
+  const [ratingsFilter, setRatingsFilter] = useState<number[]>([]);
   function updateRatingsFilter(value: number) {
     setRatingsFilter((prevRatingsFilter) => {
       if (prevRatingsFilter.includes(value)) {
@@ -34,11 +36,20 @@ function Filter({determinePriceRange,determineRatings}:FilterProp) {
     });
   }
 
+  const handleResetFilters = () => {
+    setValue([0, 100]);
+    setRatingsFilter([]);
+
+    determinePriceRange([]);
+    determineRatings([]);
+  };
+
   return (
     <div className="filters-div">
       <div className="filters-first">
         <p className="filters-first-text">Filtriraj po:</p>
-        <p className="filters-first-reset">Resetiraj</p>
+        <p className="filters-first-text-mobile">Filtriraj po</p>
+        <p onClick={handleResetFilters} className="filters-first-reset">Resetiraj</p>
       </div>
       <div className="line-break"></div>
       <div className="filters-second">
@@ -76,7 +87,11 @@ function Filter({determinePriceRange,determineRatings}:FilterProp) {
         <p>Broj zvijezdica</p>
         <div className="filters-fourth-ratings-div">
           <div className="filters-fourth-ratings">
-            <Checkbox onChange={()=>updateRatingsFilter(5)} sx={{ padding: 0, margin: 0 }} />
+            <Checkbox
+              onChange={() => updateRatingsFilter(5)}
+              sx={{ padding: 0, margin: 0 }}
+              checked={ratingsFilter.includes(5)}
+            />
             <Rating
               className="results-rating"
               value={5}
@@ -85,7 +100,11 @@ function Filter({determinePriceRange,determineRatings}:FilterProp) {
             />
           </div>
           <div className="filters-fourth-ratings">
-            <Checkbox onChange={()=>updateRatingsFilter(4)}  sx={{ padding: 0, margin: 0 }} />
+            <Checkbox
+              onChange={() => updateRatingsFilter(4)}
+              sx={{ padding: 0, margin: 0 }}
+              checked={ratingsFilter.includes(4)}
+            />
             <Rating
               className="results-rating"
               value={4}
@@ -94,7 +113,11 @@ function Filter({determinePriceRange,determineRatings}:FilterProp) {
             />
           </div>
           <div className="filters-fourth-ratings">
-            <Checkbox onChange={()=>updateRatingsFilter(3)}  sx={{ padding: 0, margin: 0 }} />
+            <Checkbox
+              onChange={() => updateRatingsFilter(3)}
+              sx={{ padding: 0, margin: 0 }}
+              checked={ratingsFilter.includes(3)}
+            />
             <Rating
               className="results-rating"
               value={3}
@@ -103,7 +126,11 @@ function Filter({determinePriceRange,determineRatings}:FilterProp) {
             />
           </div>
           <div className="filters-fourth-ratings">
-            <Checkbox onChange={()=>updateRatingsFilter(2)}  sx={{ padding: 0, margin: 0 }} />
+            <Checkbox
+              onChange={() => updateRatingsFilter(2)}
+              sx={{ padding: 0, margin: 0 }}
+              checked={ratingsFilter.includes(2)}
+            />
             <Rating
               className="results-rating"
               value={2}
@@ -112,7 +139,11 @@ function Filter({determinePriceRange,determineRatings}:FilterProp) {
             />
           </div>
           <div className="filters-fourth-ratings">
-            <Checkbox onChange={()=>updateRatingsFilter(1)}  sx={{ padding: 0, margin: 0 }} />
+            <Checkbox
+              onChange={() => updateRatingsFilter(1)}
+              sx={{ padding: 0, margin: 0 }}
+              checked={ratingsFilter.includes(1)}
+            />
             <Rating
               className="results-rating"
               value={1}
@@ -155,7 +186,12 @@ function Filter({determinePriceRange,determineRatings}:FilterProp) {
         </div>
       </div>
 
-      <Button onClick={applyFilters} className="filters-btn">Primjeni filter</Button>
+      <Button onClick={applyFilters} className="filters-btn">
+        Primjeni filter
+      </Button>
+      <Button onClick={handleResetFilters} className="filters-reset-btn-mobile">
+        Resetiraj
+      </Button>
     </div>
   );
 }

@@ -51,6 +51,7 @@ function FilterMobile({
           <Filter
             determinePriceRange={handlePriceRange}
             determineRatings={handleRatings}
+            closeFilter={closeFilter}
           />
         </div>
       </Drawer>
