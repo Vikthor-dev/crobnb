@@ -11,6 +11,7 @@ import ArgumentiMobile from "../components/ArgumentiMobile";
 import FilterIconMobile from "../assets/filterIconMobile.svg";
 import SortIconMobile from "../assets/filterIconMobile.svg";
 import FilterMobile from "../components/FilterMobile";
+import SortMobile from "../components/SortMobile";
 
 function Results() {
   const location = useLocation();
@@ -114,6 +115,16 @@ function Results() {
     setFilterMobile(!isFilterMobile);
   }
 
+  const [isSortMobile, setSortMobile] = useState<boolean>(false);
+  function handleSortMobile() {
+    setSortMobile(!isSortMobile);
+  }
+
+  function handleSortValueMobile(value:string){
+    setSortOrder(value);
+  }
+
+
   return (
     <div className={hideSearch ? "results-main" : "results-div-custom"}>
       <div className="search-desktop">
@@ -143,7 +154,7 @@ function Results() {
           />
           <p>Filtriraj po</p>
         </div>
-        <div className="filter-sort-mob-div">
+        <div onClick={handleSortMobile} className="filter-sort-mob-div">
           <img
             src={SortIconMobile}
             alt="Sort"
@@ -158,6 +169,7 @@ function Results() {
         updatePriceRangeMob={handlePriceRange}
         updateRatingsMob={handleRatings}
       />
+      <SortMobile isOpen={isSortMobile} toogleSort={handleSortMobile} handleSort={handleSortValueMobile}/>
 
       <div className="results-div">
         <div className="results-div-filter">

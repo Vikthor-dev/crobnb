@@ -177,6 +177,7 @@
         align-items: flex-start;
         justify-content: flex-start;
         width: 310px;
+        height: 48px;
     }
 
     .fav-icon {
@@ -203,6 +204,7 @@
 
     .results-card-fourth {
         width: 310px;
+        gap: 8px;
     }
 
     .results-card-fifth {

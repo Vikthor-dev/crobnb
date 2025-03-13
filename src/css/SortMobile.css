@@ -1,0 +1,25 @@
+.sort-mob-navigation{
+    display: none;
+}
+@media only screen and (max-width: 600px) {
+    .sort-mob-navigation{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100vw;
+        margin-top: 80px;
+        height: 300px;
+    }
+    .radio-row{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 8px;
+        color: #50545E;
+        font-family: "Mulish",sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+    }
+}
