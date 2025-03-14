@@ -9,6 +9,7 @@ import RegijeFull from "./pages/RegijeFull";
 import Novosti from "./pages/Novosti";
 import Results from "./pages/Results";
 import Error from "./pages/Error";
+import SmjestajDetails from "./pages/SmjestajDetails";
 
 function App() {
   const [drawerOpen, setDrawerOpen] = React.useState(false);
@@ -26,6 +27,7 @@ function App() {
           <Route path="/regije" element={<RegijeFull/>}></Route>
           <Route path="/novosti" element={<Novosti/>}></Route>
           <Route path="/results" element={<Results/>}></Route>
+          <Route path="/details" element={<SmjestajDetails/>}></Route>
           <Route path="*" element={<Error />} />
         </Routes>
         <Navbar isDrawerOpen={drawerOpen} toggleNavbarDrawer={toggleDrawer} />

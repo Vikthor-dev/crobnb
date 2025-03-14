@@ -14,6 +14,7 @@ import Button from "@mui/material/Button/Button";
 import HeartMobile from "../assets/heartMobile.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface ResultCardProps {
   image: string;
@@ -22,7 +23,10 @@ interface ResultCardProps {
   rating: number;
   price: number;
   filteri: string[];
-  ulica:string
+  ulica: string;
+  id: number;
+  startDate: string | null;
+  endDate: string | null;
 }
 
 function ResultsCard({
@@ -32,8 +36,12 @@ function ResultsCard({
   rating,
   price,
   filteri,
-  ulica
+  ulica,
+  id,
+  startDate,
+  endDate,
 }: ResultCardProps) {
+  const navigate = useNavigate();
   const [hrk, setHrk] = useState(0);
   async function converter() {
     try {
@@ -89,6 +97,17 @@ function ResultsCard({
     restoran: { src: restoran, label: "Restoran" },
   };
 
+  function goDetails() {
+    const encodedId = encodeURIComponent(id ?? null);
+    const encodedstartDate = startDate
+      ? encodeURIComponent(startDate)
+      : undefined;
+    const encodedendDate = endDate ? encodeURIComponent(endDate) : undefined;
+    navigate(
+      `/details?data=${encodedId}&startDate=${encodedstartDate}&endDate=${encodedendDate}`
+    );
+  }
+
   return (
     <div className="result-card">
       <div className="result-img-div">
@@ -132,6 +151,7 @@ function ResultsCard({
         </div>
         <div className="results-card-fifth">
           <Button
+            onClick={goDetails}
             className="results-card-fifth-btn"
             disableElevation
             variant="contained"

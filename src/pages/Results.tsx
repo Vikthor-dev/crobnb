@@ -242,6 +242,9 @@ function Results() {
               category={result.category}
               filteri={result.filteri}
               ulica = {result.ulica}
+              id = {result.id}
+              startDate ={startDate}
+              endDate = {endDate}
             />
           ))}
         </div>

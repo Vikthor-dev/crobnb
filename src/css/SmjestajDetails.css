@@ -1,0 +1,55 @@
+.smjestaj-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+.detail-category{
+    margin: 0px;
+    padding: 0px;
+    text-transform: uppercase;
+    color:#838791 ;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: "Mulish",sans-serif;
+    width: 1216px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+.details-name-rating{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+    gap: 8px;
+    width: 497px;
+    width: 1216px;
+    margin-bottom: 15px;
+}
+.details-name-rating p{
+    color: #202532;
+    font-size: 40px;
+    font-family: "Mulsih",sans-serif;
+    font-weight: 700;
+    margin: 0px;
+    padding: 0px;
+}
+.details-ulica{
+    width: 1216px;
+    justify-content: flex-start;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: #337589;
+    font-family: "Mulish",sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+}
+.details-ulica p{
+    margin: 0px;
+    padding: 0px;
+    text-decoration: underline;
+    text-decoration-color:#337589;
+}
