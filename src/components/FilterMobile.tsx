@@ -8,12 +8,14 @@ function FilterMobile({
   isOpen,
   toggleFilter,
   updatePriceRangeMob,
-  updateRatingsMob
+  updateRatingsMob,
+  updateFiltersMob
 }: {
   isOpen: boolean;
   toggleFilter: () => void;
   updatePriceRangeMob:(value:number[]) => void
   updateRatingsMob:(value:number[]) => void
+  updateFiltersMob:(value:string[]) => void
 }) {
   const [, setPriceRange] = useState<number[]>([]);
   function handlePriceRange(value: number[]) {
@@ -28,6 +30,14 @@ function FilterMobile({
     console.log("Filter ratings:", value);
     updateRatingsMob(value)
   }
+
+  const [,setFilters] = useState<string[]>([]);
+  function handleFilters(value:string[]){
+    setFilters(value);
+    console.log("Filters:",value)
+    updateFiltersMob(value)
+  }
+
 
   function closeFilter(){
     toggleFilter();
@@ -52,6 +62,7 @@ function FilterMobile({
             determinePriceRange={handlePriceRange}
             determineRatings={handleRatings}
             closeFilter={closeFilter}
+            determineFilters={handleFilters}
           />
         </div>
       </Drawer>

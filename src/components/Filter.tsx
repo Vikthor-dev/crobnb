@@ -9,9 +9,10 @@ interface FilterProp {
   determinePriceRange: (value: number[]) => void;
   determineRatings: (value: number[]) => void;
   closeFilter:()=>void;
+  determineFilters:(value:string[]) => void;
 }
 
-function Filter({ determinePriceRange, determineRatings,closeFilter }: FilterProp) {
+function Filter({ determinePriceRange, determineRatings,closeFilter,determineFilters }: FilterProp) {
   const [filterPriceRange, setValue] = useState<number[]>([0, 100]);
 
   const handleFilterPrice = (event: Event, newValue: number | number[]) => {
@@ -22,6 +23,7 @@ function Filter({ determinePriceRange, determineRatings,closeFilter }: FilterPro
   function applyFilters() {
     determinePriceRange(filterPriceRange as number[]);
     determineRatings(ratingsFilter as number[]);
+    determineFilters(filters as string[])
     closeFilter();
   }
 
@@ -36,9 +38,21 @@ function Filter({ determinePriceRange, determineRatings,closeFilter }: FilterPro
     });
   }
 
+  const [filters,setFilters] = useState<string[]>([]);
+  function updateFilters(value:string){
+    setFilters((prevFilter)=>{
+      if(prevFilter.includes(value)){
+        return prevFilter.filter((filter) => filter !== value)
+      }else{
+        return [...prevFilter,value]
+      }
+    })
+  }
+
   const handleResetFilters = () => {
     setValue([0, 100]);
     setRatingsFilter([]);
+    setFilters([])
 
     determinePriceRange([]);
     determineRatings([]);
@@ -160,28 +174,20 @@ function Filter({ determinePriceRange, determineRatings,closeFilter }: FilterPro
         <p>Popularni filteri</p>
         <div className="filters-fifth-items-div">
           <div className="filters-fifth-items">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
+            <Checkbox sx={{ padding: 0, margin: 0 }} onChange={() => updateFilters("bazen")} checked={filters.includes("bazen")}/>
             <p>Bazen</p>
           </div>
           <div className="filters-fifth-items">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
+            <Checkbox sx={{ padding: 0, margin: 0 }} onChange={() => updateFilters("wifi")} checked={filters.includes("wifi")} />
             <p>WiFi</p>
           </div>
           <div className="filters-fifth-items">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
+            <Checkbox sx={{ padding: 0, margin: 0 }} onChange={() => updateFilters("klima")} checked={filters.includes("klima")} />
             <p>Klima</p>
           </div>
           <div className="filters-fifth-items">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
+            <Checkbox sx={{ padding: 0, margin: 0 }} onChange={() => updateFilters("parking")} checked={filters.includes("parking")} />
             <p>Parking</p>
-          </div>
-          <div className="filters-fifth-items">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
-            <p>Apartman</p>
-          </div>
-          <div className="filters-fifth-items">
-            <Checkbox sx={{ padding: 0, margin: 0 }} />
-            <p>TV</p>
           </div>
         </div>
       </div>
