@@ -21,6 +21,7 @@ interface ResultCardProps {
   name: string;
   rating: number;
   price: number;
+  filteri:string[]
 }
 
 function ResultsCard({
@@ -29,6 +30,7 @@ function ResultsCard({
   name,
   rating,
   price,
+  filteri
 }: ResultCardProps) {
   const [hrk, setHrk] = useState(0);
   async function converter() {
@@ -73,6 +75,18 @@ function ResultsCard({
     categorySetter();
   },[]);
 
+  const filterIcons: { [key: string]: { src: string; label: string } } = {
+    bazen: { src: bazen, label: "Bazen" },
+    wifi: { src: wifi, label: "WiFi" },
+    klima: { src: klima, label: "Klima" },
+    tenis: { src: tenis, label: "Tenis igralište" },
+    parking: { src: parking, label: "Parking" },
+    sauna: { src: sauna, label: "Sauna" },
+    welness: { src: welness, label: "Wellness&Spa" },
+    caffee: { src: caffee, label: "Caffee bar" },
+    restoran: { src: restoran, label: "Restoran" },
+  };
+
   return (
     <div className="result-card">
       <div className="result-img-div">
@@ -101,55 +115,15 @@ function ResultsCard({
           <p>Hatzeov perivoj 3, 21000 Split, Hrvatska</p>
         </div>
         <div className="results-card-fourth">
-          <div className="results-card-fourth-icons">
-            <img src={bazen} alt="bazen" style={{ height: 20, width: 20 }} />
-            <p>Bazen</p>
-          </div>
-          <div className="results-card-fourth-icons">
-            <img src={klima} alt="klima" style={{ height: 20, width: 20 }} />
-            <p>Klima</p>
-          </div>
-          <div className="results-card-fourth-icons">
-            <img
-              src={parking}
-              alt="parking"
-              style={{ height: 20, width: 20 }}
-            />
-            <p>Parking</p>
-          </div>
-          <div className="results-card-fourth-icons">
-            <img src={wifi} alt="wifi" style={{ height: 20, width: 20 }} />
-            <p>WiFi</p>
-          </div>
-          <div className="results-card-fourth-icons">
-            <img src={sauna} alt="sauna" style={{ height: 20, width: 20 }} />
-            <p>Sauna</p>
-          </div>
-          <div className="results-card-fourth-icons">
-            <img src={tenis} alt="tenis" style={{ height: 20, width: 20 }} />
-            <p>Tenis igralište</p>
-          </div>
-          <div className="results-card-fourth-icons">
-            <img src={caffee} alt="caffee" style={{ height: 20, width: 20 }} />
-            <p>Caffee bar</p>
-          </div>
-          <div className="results-card-fourth-icons">
-            <img
-              src={welness}
-              alt="welness"
-              style={{ height: 20, width: 20 }}
-            />
-            <p>Wellness&Spa</p>
-          </div>
-          <div className="results-card-fourth-icons">
-            <img
-              src={restoran}
-              alt="restoran"
-              style={{ height: 20, width: 20 }}
-            />
-            <p>Restoran</p>
-          </div>
-        </div>
+  {filteri.map((filter) => 
+    filterIcons[filter] ? (
+      <div className="results-card-fourth-icons" key={filter}>
+        <img src={filterIcons[filter].src} alt={filter} style={{ height: 20, width: 20 }} />
+        <p>{filterIcons[filter].label}</p>
+      </div>
+    ) : null
+  )}
+</div>
         <div className="results-card-fifth">
           <Button
             className="results-card-fifth-btn"

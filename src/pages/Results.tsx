@@ -218,6 +218,7 @@ function Results() {
               rating={result.rating}
               price={result.price}
               category={result.category}
+              filteri={result.filteri}
             />
           ))}
         </div>
