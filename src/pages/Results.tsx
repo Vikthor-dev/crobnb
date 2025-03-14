@@ -76,10 +76,10 @@ function Results() {
     )
       return true;
 
-    const matchesFilters =
+      const matchesFilters =
       filters.length === 0 ||
       (Array.isArray(item.filteri)
-        ? item.filteri.some((f: string) => filters.includes(f))
+        ? filters.every((f) => item.filteri.includes(f))
         : filters.includes(item.filteri));
 
     const matchesPrice =
