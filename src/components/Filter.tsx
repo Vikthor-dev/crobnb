@@ -49,6 +49,17 @@ function Filter({ determinePriceRange, determineRatings,closeFilter,determineFil
     })
   }
 
+  const [allFiltersArray,setAllFiltersArray] = useState<(string| number)[]>([])
+  function updateAllArray(value:string | number){
+    setAllFiltersArray((prev)=>{
+      if(prev.includes(value)){
+        return prev.filter((p)=> p!==value)
+      }else{
+        return [...prev,value]
+      }
+    })
+  }
+
   const handleResetFilters = () => {
     setValue([0, 100]);
     setRatingsFilter([]);

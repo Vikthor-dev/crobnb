@@ -62,21 +62,25 @@ function Results() {
     console.log("Filter ratings:", value);
   }
 
-  const [filters,setFilters] = useState<string[]>([]);
-  function handleFilters(value:string[]){
+  const [filters, setFilters] = useState<string[]>([]);
+  function handleFilters(value: string[]) {
     setFilters(value);
-    console.log("Filters:",value)
+    console.log("Filters:", value);
   }
 
   const filteredResults = results.filter((item) => {
-    if (priceRange.length === 0 && filterRatings.length === 0 && filters.length === 0) return true;
+    if (
+      priceRange.length === 0 &&
+      filterRatings.length === 0 &&
+      filters.length === 0
+    )
+      return true;
 
     const matchesFilters =
-  filters.length === 0 ||
-  (Array.isArray(item.filteri)
-    ? item.filteri.some((f:string) => filters.includes(f))
-    : filters.includes(item.filteri));
-
+      filters.length === 0 ||
+      (Array.isArray(item.filteri)
+        ? item.filteri.some((f: string) => filters.includes(f))
+        : filters.includes(item.filteri));
 
     const matchesPrice =
       priceRange.length === 0 ||
@@ -133,13 +137,12 @@ function Results() {
     setSortMobile(!isSortMobile);
   }
 
-  function handleSortValueMobile(value:string){
+  function handleSortValueMobile(value: string) {
     setSortOrder(value);
   }
-  function closeFilter(){
+  function closeFilter() {
     return;
   }
-
 
   return (
     <div className={hideSearch ? "results-main" : "results-div-custom"}>
@@ -186,7 +189,11 @@ function Results() {
         updateRatingsMob={handleRatings}
         updateFiltersMob={handleFilters}
       />
-      <SortMobile isOpen={isSortMobile} toogleSort={handleSortMobile} handleSort={handleSortValueMobile}/>
+      <SortMobile
+        isOpen={isSortMobile}
+        toogleSort={handleSortMobile}
+        handleSort={handleSortValueMobile}
+      />
 
       <div className="results-div">
         <div className="results-div-filter">
