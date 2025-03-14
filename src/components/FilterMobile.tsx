@@ -43,7 +43,7 @@ function FilterMobile({
         }}
         open={isOpen}
         onClose={toggleFilter}
-        variant="temporary"
+        variant="persistent"
         anchor="left"
       >
         <div className="filter-mob-navigation">
