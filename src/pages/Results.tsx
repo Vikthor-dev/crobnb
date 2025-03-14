@@ -241,6 +241,7 @@ function Results() {
               price={result.price}
               category={result.category}
               filteri={result.filteri}
+              ulica = {result.ulica}
             />
           ))}
         </div>

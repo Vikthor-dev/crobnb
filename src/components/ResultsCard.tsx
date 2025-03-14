@@ -21,7 +21,8 @@ interface ResultCardProps {
   name: string;
   rating: number;
   price: number;
-  filteri:string[]
+  filteri: string[];
+  ulica:string
 }
 
 function ResultsCard({
@@ -30,7 +31,8 @@ function ResultsCard({
   name,
   rating,
   price,
-  filteri
+  filteri,
+  ulica
 }: ResultCardProps) {
   const [hrk, setHrk] = useState(0);
   async function converter() {
@@ -46,23 +48,23 @@ function ResultsCard({
     }
   }
 
-  const[kategorija,setKat] = useState<string | null>(null)
+  const [kategorija, setKat] = useState<string | null>(null);
 
-  function categorySetter(){
-    if(category === "hoteli"){
-      setKat("HOTELI")
+  function categorySetter() {
+    if (category === "hoteli") {
+      setKat("HOTELI");
     }
-    if(category === "apartmani"){
-      setKat("APARTMANI")
+    if (category === "apartmani") {
+      setKat("APARTMANI");
     }
-    if(category === "ville"){
-      setKat("VILLE")
+    if (category === "ville") {
+      setKat("VILLE");
     }
-    if(category === "mobilne_kucice"){
-      setKat("MOBILNE KUĆICE")
+    if (category === "mobilne_kucice") {
+      setKat("MOBILNE KUĆICE");
     }
-    if(category === "turisticka_naselja"){
-      setKat("TURISTIČKA NASELJA")
+    if (category === "turisticka_naselja") {
+      setKat("TURISTIČKA NASELJA");
     }
   }
 
@@ -73,7 +75,7 @@ function ResultsCard({
   useEffect(() => {
     converter();
     categorySetter();
-  },[]);
+  }, []);
 
   const filterIcons: { [key: string]: { src: string; label: string } } = {
     bazen: { src: bazen, label: "Bazen" },
@@ -112,18 +114,22 @@ function ResultsCard({
           />
         </div>
         <div className="results-card-third">
-          <p>Hatzeov perivoj 3, 21000 Split, Hrvatska</p>
+          <p>{ulica}</p>
         </div>
         <div className="results-card-fourth">
-  {filteri.map((filter) => 
-    filterIcons[filter] ? (
-      <div className="results-card-fourth-icons" key={filter}>
-        <img src={filterIcons[filter].src} alt={filter} style={{ height: 20, width: 20 }} />
-        <p>{filterIcons[filter].label}</p>
-      </div>
-    ) : null
-  )}
-</div>
+          {filteri.map((filter) =>
+            filterIcons[filter] ? (
+              <div className="results-card-fourth-icons" key={filter}>
+                <img
+                  src={filterIcons[filter].src}
+                  alt={filter}
+                  style={{ height: 20, width: 20 }}
+                />
+                <p>{filterIcons[filter].label}</p>
+              </div>
+            ) : null
+          )}
+        </div>
         <div className="results-card-fifth">
           <Button
             className="results-card-fifth-btn"
